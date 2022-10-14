@@ -4,7 +4,7 @@ import {useEffect} from 'react';
 
 function App() {
   useEffect(() => {
-    fetch("/.netlify/functions/fetch-movie?name='Bob'").then((res) =>
+    fetch('/.netlify/functions/fetch-movie').then((res) =>
       console.log(res.json())
     );
   }, []);
