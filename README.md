@@ -42,8 +42,7 @@ npm install
 2. Run app
 
 ```
-cd movie-app
-npm start
+npm run dev
 ```
 
 ## Our Process
