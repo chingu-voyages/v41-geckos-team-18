@@ -24,7 +24,7 @@ in your `readme` feel free to replace the text we've provided here.
 - [Our Process](#our-process)
   - [Built With](#built-with)
   <!-- - [Continued development](#continued-development) -->
-- [Authors](#authors)
+- [Credits](#credits)
 
 ## Overview
 
@@ -38,8 +38,9 @@ Gecko's 18 Movie App offers useful information about Movies and TV Shows. User c
 cd movie-app
 npm install
 ```
+2. Create `.env` file in `./movie-app`. Contact developers for secret `API_KEY`
 
-2. Run app
+3. Run app
 
 ```
 npm run dev
@@ -52,3 +53,5 @@ npm run dev
 - React
 - MUI
 - React Router
+
+## Credits
