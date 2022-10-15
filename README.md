@@ -40,7 +40,7 @@ npm install
 ```
 2. Create `.env` file in `./movie-app`. Contact developers for secret `API_KEY`
 
-3. Run app
+3. Run app on `localhost:8080`
 
 ```
 npm run dev
