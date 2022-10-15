@@ -65,6 +65,9 @@ jspm_packages/
 .cache
 .parcel-cache
 
+# Netlify
+/.netlify
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
