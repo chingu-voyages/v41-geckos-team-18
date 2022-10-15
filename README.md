@@ -14,9 +14,10 @@ in your `readme` feel free to replace the text we've provided here.
 > Own it & Make it your Own! -->
 
 # Gecko 18's Movie App
-[Live Demo](https://movie-app-geckos-18.netlify.app/)
+### Live Demo
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4ea4af9-7c8c-453e-b8e0-9f2c7c75aee7/deploy-status)](https://movie-app-geckos-18.netlify.app/)
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
   - [Installation](#installation)
