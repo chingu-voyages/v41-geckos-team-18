@@ -4,7 +4,7 @@ const handler = async (event) => {
   const API_KEY = process.env.API_KEY;
   const BASE_URL = 'https://api.themoviedb.org/3/';
   const TREND_URL = BASE_URL + 'trending/all/week' + '?api_key=' + API_KEY;
-  console.log('TREND_URL:', TREND_URL);
+  // console.log('TREND_URL:', TREND_URL);
 
   try {
     const {data} = await axios.get(TREND_URL);
