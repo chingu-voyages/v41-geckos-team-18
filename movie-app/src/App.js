@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import {useState, useEffect} from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const URL = '/.netlify/functions/fetch-movie';
+
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      try {
+        const response = await fetch(URL);
+
+        // Convert to JSON
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }
 
 export default App;
