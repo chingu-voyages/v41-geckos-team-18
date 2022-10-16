@@ -14,8 +14,10 @@ in your `readme` feel free to replace the text we've provided here.
 > Own it & Make it your Own! -->
 
 # Gecko 18's Movie App
+### Live Demo
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4ea4af9-7c8c-453e-b8e0-9f2c7c75aee7/deploy-status)](https://movie-app-geckos-18.netlify.app/)
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
   - [Installation](#installation)
@@ -23,7 +25,7 @@ in your `readme` feel free to replace the text we've provided here.
 - [Our Process](#our-process)
   - [Built With](#built-with)
   <!-- - [Continued development](#continued-development) -->
-- [Authors](#authors)
+- [Credits](#credits)
 
 ## Overview
 
@@ -37,12 +39,12 @@ Gecko's 18 Movie App offers useful information about Movies and TV Shows. User c
 cd movie-app
 npm install
 ```
+2. Create `.env` file in `./movie-app`. Contact developers for secret `API_KEY`
 
-2. Run app
+3. Run app on `localhost:8080`
 
 ```
-cd movie-app
-npm start
+npm run dev
 ```
 
 ## Our Process
@@ -52,3 +54,5 @@ npm start
 - React
 - MUI
 - React Router
+
+## Credits
