@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 function App() {
   const URL = '/.netlify/functions/fetch-movie';
@@ -28,7 +29,17 @@ function App() {
     fetchData();
   }, []);
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+  return (
+    <div className="App">
+      <h1>Movie Recommendation App</h1>
+      <nav>
+        <Link to="/movies">Movies</Link> | <Link to="/tvShows">TV Shows</Link>
+        <Outlet />
+      </nav>
+
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
 }
 
 export default App;
