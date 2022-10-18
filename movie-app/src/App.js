@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Searchbar from './searchbar/searchbar.component';
+import './App.css';
 
 function App() {
   const URL = '/.netlify/functions/fetch-movie';
@@ -32,12 +33,10 @@ function App() {
 
   return (
     <div className="App">
-      <Searchbar />
-      <h1>Movie Recommendation App</h1>
       <nav>
-        <Link to="/movies">Movies</Link> | <Link to="/tvShows">TV Shows</Link>
-        <Outlet />
+        <Searchbar />
       </nav>
+      <Outlet />
 
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
