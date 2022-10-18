@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import Searchbar from './searchbar/searchbar.component';
 
 function App() {
   const URL = '/.netlify/functions/fetch-movie';
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <Searchbar />
       <h1>Movie Recommendation App</h1>
       <nav>
         <Link to="/movies">Movies</Link> | <Link to="/tvShows">TV Shows</Link>
