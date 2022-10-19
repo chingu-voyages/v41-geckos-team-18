@@ -61,6 +61,7 @@ const PosterImg = styled.img`
   width: 100%;
   border-radius: 8px;
   height: auto;
+  cursor: pointer;
 `;
 
 export default MovieRow;
