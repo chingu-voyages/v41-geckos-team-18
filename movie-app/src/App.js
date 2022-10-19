@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import MovieRow from './MovieRow';
 
 function App() {
   const URL = '/.netlify/functions/fetch-movie';
@@ -37,7 +38,8 @@ function App() {
         <Outlet />
       </nav>
 
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <MovieRow title="TrendingMovie" id="Trend" data={data} />
     </div>
   );
 }
