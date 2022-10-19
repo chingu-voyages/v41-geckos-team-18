@@ -1,10 +1,18 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import './MovieRow.css';
+import MovieDataModal from './MovieDataModal';
 
 const MovieRow = ({ title, id, data }) => {
   const [movie, setMovie] = useState([]);
+  const [movieDataOpen, setMovieDataOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState({});
+
+  const PosterClick = (movie) => {
+    setMovieDataOpen(true);
+    setSelectedMovie(movie);
+    console.log('setSelectedMovie', movie);
+  };
 
   useEffect(() => {
     try {
@@ -19,17 +27,20 @@ const MovieRow = ({ title, id, data }) => {
       <PosterContainer id={id}>
         {movie &&
           movie.map((movie) => (
-            <PosterBox>
+            <PosterBox key={movie.id}>
               {/* <p>{movie.name}</p> */}
               <PosterImg
-                key={movie.id}
                 className="poster"
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt={movie.name}
+                onClick={() => {
+                  PosterClick(movie);
+                }}
               />
             </PosterBox>
           ))}
       </PosterContainer>
+      {movieDataOpen && <MovieDataModal {...selectedMovie} setMovieDataOpen={setMovieDataOpen} />}
     </section>
   );
 };

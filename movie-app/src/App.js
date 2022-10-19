@@ -39,7 +39,7 @@ function App() {
       </nav>
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MovieRow title="TrendingMovie" id="Trend" data={data} />
+      <MovieRow title="Trending Movie" id="Trend" data={data} />
     </div>
   );
 }
