@@ -47,15 +47,9 @@ const ModalBox = styled.div`
   transition: all 400ms ease-in-out 2s;
   animation: fadeIn 400ms;
 `;
-// const CloseBtn = style.span``;
 const ModalImg = styled.img`
   width: 100%;
   height: auto;
 `;
-// const ModalContent = style.div``;
-// const MovieDate = style.div``;
-// const MovieTitle = style.h2``;
-// const MovieVote = style.p``;
-// const MovieOverview = style.p``
 
 export default MovieDataModal;

@@ -28,7 +28,6 @@ const MovieRow = ({ title, id, data }) => {
         {movie &&
           movie.map((movie) => (
             <PosterBox key={movie.id}>
-              {/* <p>{movie.name}</p> */}
               <PosterImg
                 className="poster"
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
