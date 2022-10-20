@@ -12,10 +12,6 @@ function useAxiosFetch(url) {
 
       try {
         const { data: res } = await axios.get(url);
-
-        // Convert to JSON
-        // const jsonData = await res.json();
-
         setData(res);
       } catch (err) {
         setError(err.message);
