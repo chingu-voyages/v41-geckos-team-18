@@ -16,7 +16,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 
-import './searchbar.style.scss'
+import './searchbar.scss'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
