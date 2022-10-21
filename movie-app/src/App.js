@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import Searchbar from './searchbar/searchBar';
+import SearchBar from './searchbar/SearchBar';
 import './App.css';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Searchbar />
+        <SearchBar />
       </nav>
       <Outlet />
 
