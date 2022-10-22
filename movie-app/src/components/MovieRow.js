@@ -1,21 +1,18 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// import MovieDataModal from './MovieDataModal';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
-const MovieRow = ({ title, id, data }) => {
+const MovieRow = ({ title, data }) => {
   const [movie, setMovie] = useState([]);
-  // const [movieDataOpen, setMovieDataOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleOpen = (movieData) => {
     setOpen(true);
     setSelectedMovie(movieData);
-    console.log('야옹', movieData);
   };
   const handleClose = () => setOpen(false);
 
@@ -39,7 +36,6 @@ const MovieRow = ({ title, id, data }) => {
     }
   }, [data.results]);
 
-  console.log('안녕', selectedMovie.backdrop_path);
   return (
     <Container fixed>
       <Typography component="h1" variant="h5">
@@ -47,7 +43,7 @@ const MovieRow = ({ title, id, data }) => {
       </Typography>
       {movie ? (
         <Grid container rowSpacing={0.5} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-          {movie.map((movie, index) => (
+          {movie.map((movie) => (
             <Grid item xs={3} key={movie.id}>
               <img
                 className="poster"
