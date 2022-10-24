@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import SearchBar from './searchbar/SearchBar';
+import SearchBar from './components/searchbar/SearchBar';
 import './App.css';
 
 function App() {
