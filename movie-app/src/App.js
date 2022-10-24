@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import MovieRow from './components/MovieRow';
+import SearchBar from './components/searchbar/SearchBar';
+import './App.css';
 
 function App() {
   const URL = '/.netlify/functions/fetch-movie';
@@ -32,10 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Movie Recommendation App</h1>
       <nav>
-        <Link to="/movies">Movies</Link> | <Link to="/tvShows">TV Shows</Link>
-        <Outlet />
+        <SearchBar />
       </nav>
       <MovieRow title="Trending Movie" id="Trend" data={data} />
     </div>
