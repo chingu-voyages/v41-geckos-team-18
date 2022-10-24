@@ -7,7 +7,6 @@ const handler = async (event) => {
   const mediaType = 'all';
   const timeWindow = 'day';
   const trendingURL = `${BASE_URL}/${endpoint}/${mediaType}/${timeWindow}?api_key=${API_KEY}`;
-  console.log('trendingURL:', trendingURL);
 
   try {
     const { data } = await axios.get(trendingURL);

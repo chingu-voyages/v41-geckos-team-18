@@ -10,7 +10,7 @@ function App() {
         <Link to="/movies">Movies</Link> | <Link to="/tvShows">TV Shows</Link>
         <Outlet />
       </nav>
-      <MovieRow title="Trending Movie" id="Trend" data={data} />
+      <MovieRow title="Trending Movie" id="Trend" />
     </div>
   );
 }
