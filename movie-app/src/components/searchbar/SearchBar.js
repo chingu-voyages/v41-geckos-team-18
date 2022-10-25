@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from "react";
+import { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,7 +16,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 
-import './SearchBar.scss'
+import './SearchBar.scss';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -58,10 +58,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar() {
-  const [anchorEl, setAnchorEl] = useState("");
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    useState("");
+export default SearchBar = props => {
+  const [anchorEl, setAnchorEl] = useState('');
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState('');
+  const [searchFieldString, setSearchField] = useState('')
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -124,20 +124,19 @@ export default function SearchBar() {
     >
       <MenuItem>
         <IconButton size="large" color="inherit">
-          <Badge color="error">
-          </Badge>
+          <Badge color="error"></Badge>
         </IconButton>
-        <Link to="/movies"><p color="inherit">Movies</p></Link>
+        <Link to="/movies">
+          <p color="inherit">Movies</p>
+        </Link>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size="large"
-          color="inherit"
-        >
-          <Badge color="error">
-          </Badge>
+        <IconButton size="large" color="inherit">
+          <Badge color="error"></Badge>
         </IconButton>
-        <Link to="/tvShows"><p color="inherit">TV Shows</p></Link>
+        <Link to="/tvShows">
+          <p color="inherit">TV Shows</p>
+        </Link>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -182,21 +181,23 @@ export default function SearchBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={props.onSearchChange}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" color="inherit">
               <Badge color="error">
-              <Link to="/movies"><p color="inherit">Movies</p></Link>
+                <Link to="/movies">
+                  <p color="inherit">Movies</p>
+                </Link>
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-            >
+            <IconButton size="large" color="inherit">
               <Badge color="error">
-              <Link to="/tvShows"><p color="inherit">TV Shows</p></Link>
+                <Link to="/tvShows">
+                  <p color="inherit">TV Shows</p>
+                </Link>
               </Badge>
             </IconButton>
             <IconButton
