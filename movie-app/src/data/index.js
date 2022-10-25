@@ -7,7 +7,7 @@ const getGenreMoodPairings = () => {
   return {
     funny: `${comedy},${adventure}`,
     romantic: `${romance}`,
-    dark: `${crime},${thriller}`,
+    dark: `${crime},${thriller},${mystery}`,
     tense: `${thriller},${mystery},${horror}`,
     excited: `${action},${adventure}`,
     blissful: `${fantasy},${animation},${family}`,
