@@ -5,7 +5,7 @@ import App from './App';
 import Movies from './routes/movies';
 import TvShows from './routes/tvShows';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import defaultTheme from './theme/theme';
+import defaultTheme from './theme/defaultTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
