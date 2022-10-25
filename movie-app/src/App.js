@@ -11,7 +11,7 @@ function App() {
         <SearchBar />
       </nav>
       <MovieRow title="Trending Movie" id="Trend" />
-    </div>
+    </>
   );
 }
 
