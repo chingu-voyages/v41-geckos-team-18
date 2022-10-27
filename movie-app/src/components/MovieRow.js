@@ -7,8 +7,6 @@ import Box from '@mui/material/Box';
 import useFetch from '../hooks/useFetch';
 import MoodButtons from './MoodButtons';
 import './MovieRow.css';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 function MovieRow({ title }) {
   const [url, setUrl] = useState(`/api/fetch-trending-all`);
@@ -44,10 +42,7 @@ function MovieRow({ title }) {
         {title}
       </Typography>
       <MoodButtons setUrl={setUrl} />
-      <ArrowLeftIcon
-        fontSize="large"
-        sx={{ position: 'absolute', top: '50%', transform: 'translate(10px)' }}
-      />
+
       {isLoading ? (
         'Loading...'
       ) : (
@@ -94,10 +89,6 @@ function MovieRow({ title }) {
           </Modal>
         </>
       )}
-      <ArrowRightIcon
-        fontSize="large"
-        sx={{ position: 'absolute', top: '50%', right: '10px', transform: 'translate(10px)' }}
-      />
     </Container>
   );
 }
