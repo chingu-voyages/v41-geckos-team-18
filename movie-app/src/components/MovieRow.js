@@ -50,10 +50,10 @@ function MovieRow({ title }) {
           {movie ? (
             <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
               {movie.map((movie) => (
-                <Box key={movie.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '400px' }}>
+                <Box key={movie.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
                   <img
                     className="poster"
-                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt={movie.name}
                     onClick={() => handleOpen(movie)}
                     loading="lazy"
