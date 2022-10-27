@@ -6,9 +6,10 @@ import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import useFetch from '../hooks/useFetch';
+import MoodButtons from './MoodButtons';
 
 function MovieRow({ title }) {
-  const url = '/api/fetch-trending-all';
+  const [url, setUrl] = useState(`/api/fetch-trending-all`);
   const {
     data: { results: movie },
     error,
@@ -37,13 +38,14 @@ function MovieRow({ title }) {
 
   return (
     <Container fixed>
+      <Typography component="h1" variant="h5">
+        {title}
+      </Typography>
+      <MoodButtons setUrl={setUrl} />
       {isLoading ? (
         'Loading...'
       ) : (
         <>
-          <Typography component="h1" variant="h5">
-            {title}
-          </Typography>
           {movie ? (
             <Grid container rowSpacing={0.5} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
               {movie.map((movie) => (
