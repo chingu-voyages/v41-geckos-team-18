@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import useFetch from '../hooks/useFetch';
 import MoodButtons from './MoodButtons';
-// import './MovieRow.css';
+import './MovieRow.css';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
@@ -96,7 +96,7 @@ function MovieRow({ title }) {
       )}
       <ArrowRightIcon
         fontSize="large"
-        sx={{ position: 'absolute', top: '50%', right: '0', transform: 'translate(10px, 10px)' }}
+        sx={{ position: 'absolute', top: '50%', right: '10px', transform: 'translate(10px)' }}
       />
     </Container>
   );

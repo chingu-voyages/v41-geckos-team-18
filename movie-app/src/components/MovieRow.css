@@ -1,0 +1,3 @@
+.poster-box::-webkit-scrollbar {
+  display: none;
+}
