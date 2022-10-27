@@ -16,12 +16,19 @@ function MovieRow({ title }) {
   } = useFetch(url);
 
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [searchFiled, setSearchField] = useState({});
+  const [filteredMovie, setFileteredMovie] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleOpen = (movieData) => {
     setOpen(true);
     setSelectedMovie(movieData);
   };
   const handleClose = () => setOpen(false);
+
+  const onSearchChange = (e) => {
+    setSearchField(e.target.value.toLowerCase())
+    const filteredMovie = movies.filter(movie => movie.title.toLowerCase().includes(searchField.toLowerCase()))
+  }
 
   const style = {
     position: 'absolute',

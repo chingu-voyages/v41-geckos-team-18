@@ -2,31 +2,33 @@
 import { Outlet, Link } from 'react-router-dom';
 import MovieRow from './components/MovieRow';
 import SearchBar from './components/searchbar/SearchBar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [searchField, setSearchField] = useState('');
   const [searchFieldString, setSearchFieldString] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState('');
 
-useEffect(() => {
-  const newFilteredMovies = movies.filter(() => {
-    return movie.name.toLocaleLowerCase().includes(searchFieldString)
-  })
+  useEffect(() => {
+    const filteredMovies = movies.filter(() => {
+    return movie.name.toLocaleLowerCase().includes(searchFieldString);
+    });
 
-  setFilterMovies(newFilteredMovies);
-}, [movies, searchField]);
+    setFilteredMovies(filteredMovies);
+  }, [movies, searchField]);
 
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
-  setSearchField(searchFieldString)
-  }
+    setSearchField(searchFieldString);
+    console.log(searchFieldString);
+  };
   return (
     <div className="App">
       <nav>
-        <SearchBar onSearchChange={onSearchChange} />
+        <SearchBar onChange={onSearchChange} />
       </nav>
-      <MovieRow title="Trending Movie" id="Trend" />
+      <MovieRow title="Trending Movie" id="Trend" movies={filteredMovies} />
     </div>
   );
 }
