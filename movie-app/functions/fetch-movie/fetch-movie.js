@@ -1,17 +1,17 @@
 const axios = require('axios');
 
 const handler = async (event) => {
+  // Example of movieId: tt0111161 - Do not delete
+  const { movieId } = event.queryStringParameters;
   const API_KEY = process.env.API_KEY;
   const BASE_URL = 'https://api.themoviedb.org/3/';
-  // const { movieId } = event.queryStringParameter;
-  const imdbID = 'tt0111161';
 
   const endpoints = [
-    `${BASE_URL}/movie/${imdbID}?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${imdbID}/videos?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${imdbID}/keywords?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${imdbID}/credits?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${imdbID}/similar?api_key=${API_KEY}`,
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`,
+    `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`,
+    `${BASE_URL}/movie/${movieId}/keywords?api_key=${API_KEY}`,
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`,
+    `${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`,
   ];
 
   try {
