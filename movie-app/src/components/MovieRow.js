@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import useFetch from '../hooks/useFetch';
 import MoodButtons from './MoodButtons';
+import './MovieRow.css';
 
 function MovieRow({ title }) {
   const [url, setUrl] = useState(`/api/fetch-trending-all`);
@@ -37,30 +37,34 @@ function MovieRow({ title }) {
   };
 
   return (
-    <Container fixed>
+    <Container sx={{ position: 'relative' }}>
       <Typography component="h1" variant="h5">
         {title}
       </Typography>
       <MoodButtons setUrl={setUrl} />
+
       {isLoading ? (
         'Loading...'
       ) : (
         <>
           {movie ? (
-            <Grid container rowSpacing={0.5} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+            <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
               {movie.map((movie) => (
-                <Grid item xs={3} key={movie.id}>
+                <Box key={movie.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
                   <img
                     className="poster"
-                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt={movie.name}
                     onClick={() => handleOpen(movie)}
                     loading="lazy"
-                    style={{ maxWidth: '100%', cursor: 'pointer' }}
+                    style={{
+                      width: '100%',
+                      cursor: 'pointer',
+                    }}
                   />
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
           ) : (
             error
           )}

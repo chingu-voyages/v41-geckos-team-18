@@ -1,0 +1,10 @@
+.poster-box::-webkit-scrollbar {
+  height: 5px;
+}
+
+.poster-box::-webkit-scrollbar-thumb {
+  background-color: #f50057;
+}
+.poster-box::-webkit-scrollbar-track {
+  background-color: grey;
+}
