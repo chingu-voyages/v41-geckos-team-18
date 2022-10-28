@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Outlet, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import MovieRow from './components/MovieRow';
 import SearchBar from './components/searchbar/SearchBar';
 import { useState, useEffect } from 'react';
@@ -24,12 +24,17 @@ function App() {
     console.log(searchFieldString);
   };
   return (
-    <div className="App">
+    <>
       <nav>
         <SearchBar onChange={onSearchChange} />
       </nav>
+<<<<<<< HEAD
       <MovieRow title="Trending Movie" id="Trend" movies={filteredMovies} />
     </div>
+=======
+      <MovieRow title="Trending Movie" id="Trend" />
+    </>
+>>>>>>> dev
   );
 }
 
