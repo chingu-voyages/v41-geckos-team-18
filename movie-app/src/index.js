@@ -2,10 +2,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import Movies from './routes/movies';
+import NotFound from './page/NotFound';
 import TvShows from './routes/tvShows';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import defaultTheme from './theme/defaultTheme';
+import MovieDetails from './page/MovieDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,10 +14,14 @@ root.render(
     <CssBaseline />
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="movies" element={<Movies />} />
-          <Route path="tvShows" element={<TvShows />} />
+        <Route path="/" element={<App />} />
+        <Route path="movie">
+          <Route path=":movieId" element={<MovieDetails />} />
         </Route>
+        <Route path="tvShows" element={<TvShows />} />
+
+        {/* 404 Page */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>,
