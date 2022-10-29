@@ -27,12 +27,18 @@ const MovieBanner = () => {
           {movie ? (
             <Box>
               {movie.map((movie) => (
-                <Box key={movie.id}>
+                <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
                   <img
                     className="poster"
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt={movie.name}
                     loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '500px',
+                      cursor: 'pointer',
+                      objectFit: 'cover',
+                    }}
                   />
                 </Box>
               ))}
