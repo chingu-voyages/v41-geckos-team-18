@@ -7,11 +7,11 @@ const handler = async (event) => {
   const BASE_URL = 'https://api.themoviedb.org/3/';
 
   const endpoints = [
-    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${movieId}/keywords?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`,
-    `${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`,
+    `${BASE_URL}movie/${movieId}?api_key=${API_KEY}`,
+    `${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`,
+    `${BASE_URL}movie/${movieId}/keywords?api_key=${API_KEY}`,
+    `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`,
+    `${BASE_URL}movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`,
   ];
 
   try {
