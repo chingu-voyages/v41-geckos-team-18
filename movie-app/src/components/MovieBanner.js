@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -17,14 +18,12 @@ const MovieBanner = () => {
   console.log('isLoading', item);
   return (
     <Container fixed sx={{}}>
-      <Typography>banner</Typography>
-
       {isLoading ? (
         'Loading...'
       ) : (
         <Box>
           {movie ? (
-            <Box>
+            <Carousel navButtonsAlwaysVisible={true} duration={1000}>
               {item.map((movie) => (
                 <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
                   <img
@@ -41,7 +40,7 @@ const MovieBanner = () => {
                   />
                 </Box>
               ))}
-            </Box>
+            </Carousel>
           ) : (
             error
           )}
