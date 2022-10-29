@@ -21,7 +21,7 @@ const getGenreMoodPairings = () => {
 
 export const movieMoods = getGenreMoodPairings();
 
-export const isValid = (obj) => Object.keys(obj).length > 0;
+export const isValid = (obj) => obj && Object.keys(obj).length > 0;
 
 export const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
 
@@ -34,3 +34,15 @@ export const getKeywords = (obj) => {
   const result = obj.map((el) => el.name);
   return result.join(', ');
 };
+
+export const getTopFive = (arr) =>
+  arr && arr.map((actor) => (actor.order <= 4 ? actor : null)).filter((obj) => obj);
+
+export const getTrailers = (arr) =>
+  arr &&
+  arr.reduce((list, el) => {
+    if (el.type === 'Trailer' && el.site === 'YouTube') {
+      list.push(el);
+    }
+    return list;
+  }, []);
