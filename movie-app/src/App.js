@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import MovieRow from './components/MovieRow';
 import SearchBar from './components/searchbar/SearchBar';
 import './App.css';
+import MovieBanner from './components/MovieBanner';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <nav>
         <SearchBar />
       </nav>
+      <MovieBanner />
       <MovieRow title="Trending Movie" id="Trend" />
     </>
   );
