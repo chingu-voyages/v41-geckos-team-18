@@ -5,6 +5,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import './MovieRow.css';
 import { isValid } from '../data';
+import { Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 function MovieRow({ title, data: movies, isLoading, error }) {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -73,6 +75,9 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                   : selectedMovie.first_air_date}
               </Typography>
               <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+              <Link variant="button" component={RouterLink} to={`/movie/${selectedMovie.id}`}>
+                View Details
+              </Link>
             </Box>
           </Modal>
         </>
