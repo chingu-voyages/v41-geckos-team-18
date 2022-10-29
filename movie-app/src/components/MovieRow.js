@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import './MovieRow.css';
 import { isValid } from '../data';
 
-function MovieRow({ title, data: movies, isLoading }) {
+function MovieRow({ title, data: movies, isLoading, error }) {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleOpen = (movieData) => {
@@ -29,7 +29,7 @@ function MovieRow({ title, data: movies, isLoading }) {
   };
 
   return (
-    <Container sx={{ position: 'relative' }}>
+    <>
       <Typography component="h1" variant="h5">
         {title}
       </Typography>
@@ -39,22 +39,23 @@ function MovieRow({ title, data: movies, isLoading }) {
       ) : (
         <>
           <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
-            {isValid(movies) &&
-              movies.results.map((movies) => (
-                <Box key={movies.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
-                  <img
-                    className="poster"
-                    src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
-                    alt={movies.name}
-                    onClick={() => handleOpen(movies)}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </Box>
-              ))}
+            {isValid(movies)
+              ? movies.map((movies) => (
+                  <Box key={movies.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
+                    <img
+                      className="poster"
+                      src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                      alt={movies.name}
+                      onClick={() => handleOpen(movies)}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        cursor: 'pointer',
+                      }}
+                    />
+                  </Box>
+                ))
+              : error}
           </Box>
           <Modal open={open} onClose={handleClose}>
             <Box sx={style}>
@@ -77,7 +78,7 @@ function MovieRow({ title, data: movies, isLoading }) {
           </Modal>
         </>
       )}
-    </Container>
+    </>
   );
 }
 
