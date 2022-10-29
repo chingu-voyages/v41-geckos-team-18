@@ -13,9 +13,8 @@ const MovieBanner = () => {
     isLoading,
   } = useFetch(url);
 
-  movie && movie.slice(0, 5);
-  console.log('isLoading', movie);
-
+  const item = movie && movie.slice(0, 5);
+  console.log('isLoading', item);
   return (
     <Container fixed sx={{}}>
       <Typography>banner</Typography>
@@ -26,7 +25,7 @@ const MovieBanner = () => {
         <Box>
           {movie ? (
             <Box>
-              {movie.map((movie) => (
+              {item.map((movie) => (
                 <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
                   <img
                     className="poster"

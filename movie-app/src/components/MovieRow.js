@@ -93,4 +93,4 @@ function MovieRow({ title }) {
   );
 }
 
-export default MovieRow;
+export default React.memo(MovieRow);
