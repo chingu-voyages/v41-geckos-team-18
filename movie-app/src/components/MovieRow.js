@@ -4,18 +4,10 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import useFetch from '../hooks/useFetch';
-import MoodButtons from './MoodButtons';
 import './MovieRow.css';
+import { isValid } from '../data';
 
-function MovieRow({ title }) {
-  const [url, setUrl] = useState(`/api/fetch-trending-all`);
-  const {
-    data: { results: movie },
-    error,
-    isLoading,
-  } = useFetch(url);
-
+function MovieRow({ title, data: movies, isLoading }) {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleOpen = (movieData) => {
@@ -41,21 +33,20 @@ function MovieRow({ title }) {
       <Typography component="h1" variant="h5">
         {title}
       </Typography>
-      <MoodButtons setUrl={setUrl} />
 
       {isLoading ? (
         'Loading...'
       ) : (
         <>
-          {movie ? (
-            <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
-              {movie.map((movie) => (
-                <Box key={movie.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
+          <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
+            {isValid(movies) &&
+              movies.results.map((movies) => (
+                <Box key={movies.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
                   <img
                     className="poster"
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt={movie.name}
-                    onClick={() => handleOpen(movie)}
+                    src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                    alt={movies.name}
+                    onClick={() => handleOpen(movies)}
                     loading="lazy"
                     style={{
                       width: '100%',
@@ -64,10 +55,7 @@ function MovieRow({ title }) {
                   />
                 </Box>
               ))}
-            </Box>
-          ) : (
-            error
-          )}
+          </Box>
           <Modal open={open} onClose={handleClose}>
             <Box sx={style}>
               <img
