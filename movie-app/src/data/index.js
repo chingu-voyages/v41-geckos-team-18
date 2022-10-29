@@ -20,5 +20,17 @@ const getGenreMoodPairings = () => {
 };
 
 export const movieMoods = getGenreMoodPairings();
-export default movieMoods;
+
 export const isValid = (obj) => Object.keys(obj).length > 0;
+
+export const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
+
+export const getGenres = (obj) => {
+  const result = obj.map((el) => el.name);
+  return result.join(', ');
+};
+
+export const getKeywords = (obj) => {
+  const result = obj.map((el) => el.name);
+  return result.join(', ');
+};
