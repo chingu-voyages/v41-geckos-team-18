@@ -19,5 +19,6 @@ const getGenreMoodPairings = () => {
   };
 };
 
-const movieMoods = getGenreMoodPairings();
+export const movieMoods = getGenreMoodPairings();
 export default movieMoods;
+export const isValid = (obj) => Object.keys(obj).length > 0;
