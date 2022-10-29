@@ -1,13 +1,23 @@
 import MovieRow from '../components/MovieRow';
 import useFetch from '../hooks/useFetch';
+import { Container } from '@mui/material';
 
 export default function Main() {
   const url = `/api/fetch-trending-all`;
-  const { data, isLoading } = useFetch(url);
+  const { data, error, isLoading } = useFetch(url);
+  const { results } = data || {};
 
   return (
-    <>
-      <MovieRow title="Trending Movie" id="Trend" data={data} isLoading={isLoading} />
-    </>
+    <Container>
+      {
+        <MovieRow
+          title="Trending Movie"
+          id="Trend"
+          data={results}
+          isLoading={isLoading}
+          error={error}
+        />
+      }
+    </Container>
   );
 }
