@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
 const MovieBanner = () => {
-  const [url] = useState(`/api/fetch-trending-all`);
+  const [url] = useState(`/api/fetch-now-playing`);
   const {
     data: { results: movie },
     error,
@@ -17,6 +17,7 @@ const MovieBanner = () => {
 
   const item = movie && movie.slice(0, 5);
 
+  console.log(movie);
   return (
     <Container>
       {isLoading ? (
@@ -43,12 +44,20 @@ const MovieBanner = () => {
 
                   <Typography
                     sx={{ position: 'absolute', top: '20%', left: '10%' }}
-                    variant="h4"
+                    variant="h3"
                     component="h1"
                   >
                     {movie.title ? movie.title : movie.name}
                   </Typography>
-                  <Box sx={{ position: 'absolute', top: '30%', left: '10%', display: 'flex' }}>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: '30%',
+                      left: '10%',
+                      display: 'flex',
+                      margin: '10px 0',
+                    }}
+                  >
                     <Rating
                       name="half-rating-read"
                       defaultValue={Number((movie.vote_average / 2).toFixed(2))}
@@ -60,7 +69,7 @@ const MovieBanner = () => {
 
                   <img
                     className="poster"
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                     alt={movie.name}
                     loading="lazy"
                     style={{
