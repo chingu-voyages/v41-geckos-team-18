@@ -27,23 +27,36 @@ const MovieBanner = () => {
             <Carousel navButtonsAlwaysVisible={true} duration={1000}>
               {item.map((movie) => (
                 <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
-                  {/* {setRatingValue(movie.vote_average)} */}
-                  <Typography sx={{ position: 'absolute', top: '30px' }}>
+                  <Typography
+                    sx={{
+                      position: 'absolute',
+                      top: '5%',
+                      left: '10%',
+                      bgcolor: '#E0E0E0',
+                      color: '#000',
+                      borderRadius: '20px',
+                    }}
+                    p={1}
+                  >
                     Movie of the Day
                   </Typography>
+
                   <Typography
-                    sx={{ position: 'absolute', top: '50px' }}
-                    variant="h3"
+                    sx={{ position: 'absolute', top: '20%', left: '10%' }}
+                    variant="h4"
                     component="h1"
                   >
                     {movie.title ? movie.title : movie.name}
                   </Typography>
-                  <Rating
-                    name="half-rating-read"
-                    defaultValue={(movie.vote_average / 2).toFixed(2)}
-                    precision={0.5}
-                    readOnly
-                  />
+                  <Box sx={{ position: 'absolute', top: '30%', left: '10%', display: 'flex' }}>
+                    <Rating
+                      name="half-rating-read"
+                      defaultValue={Number((movie.vote_average / 2).toFixed(2))}
+                      precision={0.5}
+                      readOnly
+                    />
+                    <Typography ml={1}>{(movie.vote_average / 2).toFixed(2)}</Typography>
+                  </Box>
 
                   <img
                     className="poster"
