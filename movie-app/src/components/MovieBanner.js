@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
+import defaultTheme from '../theme/defaultTheme';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -32,8 +33,7 @@ const MovieBanner = () => {
                       position: 'absolute',
                       top: '5%',
                       left: '10%',
-                      bgcolor: '#E0E0E0',
-                      color: '#000',
+                      bgcolor: defaultTheme.palette.secondary.main,
                       borderRadius: '20px',
                     }}
                     p={1}
