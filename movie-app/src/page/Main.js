@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch';
 import { Container } from '@mui/material';
 
 export default function Main() {
-  const url = `/api/fetch-trending-all`;
+  const url = `/api/fetch-trending-movies`;
   const { data, error, isLoading } = useFetch(url);
   const { results } = data || {};
 
