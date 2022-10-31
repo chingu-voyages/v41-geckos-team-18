@@ -4,10 +4,11 @@ const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#795548',
+      main: '#00796b',
     },
     secondary: {
-      main: '#c62828',
+      main: '#84ffff',
+      contrastText: '#000',
     },
     background: {
       default: '#1B1B1F',
@@ -21,28 +22,24 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Syne',
+    h1: {
+      fontSize: '6em',
+    },
+    fontFamily: 'Zilla Slab',
     body1: {
-      fontFamily: 'Bitter',
+      fontFamily: 'Montserrat',
     },
     body2: {
-      fontFamily: 'Bitter',
+      fontFamily: 'Montserrat',
     },
     button: {
-      fontFamily: 'Bitter',
-      fontWeight: 500,
+      fontFamily: 'Montserrat',
     },
     caption: {
-      fontFamily: 'Bitter',
+      fontFamily: 'Montserrat',
     },
     overline: {
-      fontFamily: 'Bitter',
-    },
-    h1: {
-      fontWeight: 400,
-    },
-    h2: {
-      fontWeight: 400,
+      fontFamily: 'Montserrat',
     },
   },
 });

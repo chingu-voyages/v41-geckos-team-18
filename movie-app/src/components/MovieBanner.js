@@ -34,6 +34,7 @@ const MovieBanner = () => {
                       top: '5%',
                       left: '10%',
                       bgcolor: defaultTheme.palette.secondary.main,
+                      color: defaultTheme.palette.secondary.contrastText,
                       borderRadius: '20px',
                     }}
                     p={1}
