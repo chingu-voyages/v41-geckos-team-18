@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import defaultTheme from '../theme/defaultTheme';
 import { useNavigate } from 'react-router-dom';
+import './MovieBanner.css';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -38,6 +39,7 @@ const MovieBanner = () => {
                   onClick={() => {
                     moveDetailPage(movie.id);
                   }}
+                  className="gradient"
                 >
                   <Typography
                     sx={{
