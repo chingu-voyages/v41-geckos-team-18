@@ -1,8 +1,7 @@
 import SearchBar from './components/searchbar/SearchBar';
 import './App.css';
-import MovieBanner from './components/MovieBanner';
-import MovieRow from './components/MovieRow';
 import Main from './page/Main';
+import MovieBanner from './components/MovieBanner';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
         <SearchBar />
       </nav>
       <MovieBanner />
-      <MovieRow title="Trending Movie" id="Trend" />
       <Main />
     </>
   );
