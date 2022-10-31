@@ -4,10 +4,10 @@ const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#537aff',
+      main: '#6555d2',
     },
     secondary: {
-      main: '#c73473',
+      main: '#54646f',
     },
     background: {
       default: '#1B1B1F',
@@ -21,34 +21,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Nanum Myeongjo, serif',
-    fontSize: 14,
-    h1: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
-    },
-    h2: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
-    },
-    h3: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
-    },
-    h4: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
-    },
-    h5: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
+    fontFamily: 'Oswald',
+    body1: {
+      fontFamily: 'Nunito Sans',
     },
     h6: {
-      fontFamily: 'Lato, sans-serif',
-      fontWeight: 400,
+      lineHeight: 1.8,
+    },
+    caption: {
+      fontFamily: 'Nunito Sans',
+    },
+    overline: {
+      fontFamily: 'Nunito Sans',
+    },
+    h5: {
+      lineHeight: 1.45,
+    },
+    button: {
+      fontFamily: 'Nunito Sans',
+    },
+    body2: {
+      fontFamily: 'Nunito Sans',
     },
     subtitle2: {
-      fontWeight: 700,
+      fontFamily: 'Nunito Sans',
+    },
+    subtitle1: {
+      fontFamily: 'Nunito Sans',
     },
   },
 });
