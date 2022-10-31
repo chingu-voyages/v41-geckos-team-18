@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import './MovieRow.css';
 import { isValid } from '../data';
-import { Link } from '@mui/material';
+import { Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 function MovieRow({ title, data: movies, isLoading, error }) {
@@ -24,9 +24,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
   };
 
   return (
@@ -66,24 +64,26 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                 loading="lazy"
                 style={{ width: '100%' }}
               />
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                {selectedMovie.title ? selectedMovie.title : selectedMovie.name}
-              </Typography>
-              <Typography id="modal-modal-description">{selectedMovie.overview}</Typography>
-              <Typography>
-                {selectedMovie.release_date
-                  ? selectedMovie.release_date
-                  : selectedMovie.first_air_date}
-              </Typography>
-              <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, p: 4, pt: 1.5 }}>
+                <Typography id="modal-modal-title" variant="h4" component="h2">
+                  {selectedMovie.title ? selectedMovie.title : selectedMovie.name}
+                </Typography>
+                <Typography id="modal-modal-description">{selectedMovie.overview}</Typography>
+                <Typography>
+                  {selectedMovie.release_date
+                    ? selectedMovie.release_date
+                    : selectedMovie.first_air_date}
+                </Typography>
+                <Typography>vote_average : {selectedMovie.vote_average}</Typography>
                 <Button
                   variant="contained"
                   component={RouterLink}
                   to={`/movie/${selectedMovie.id}`}
                   onClick={handleClose}
                 >
-                View Details
-              </Link>
+                  View Details
+                </Button>
+              </Box>
             </Box>
           </Modal>
         </>
