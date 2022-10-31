@@ -61,8 +61,9 @@ function MovieRow({ title, data: movies, isLoading, error }) {
           <Modal open={open} onClose={handleClose}>
             <Box sx={style}>
               <img
-                src={`https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path}`}
-                alt="modal-img"
+                src={`https://image.tmdb.org/t/p/w300/${selectedMovie.backdrop_path}`}
+                alt={`${selectedMovie.title}'s Banner`}
+                loading="lazy"
                 style={{ width: '100%' }}
               />
               <Typography id="modal-modal-title" variant="h6" component="h2">
