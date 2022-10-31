@@ -4,10 +4,10 @@ const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#6555d2',
+      main: '#795548',
     },
     secondary: {
-      main: '#54646f',
+      main: '#c62828',
     },
     background: {
       default: '#1B1B1F',
@@ -21,33 +21,28 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Oswald',
+    fontFamily: 'Syne',
     body1: {
-      fontFamily: 'Nunito Sans',
-    },
-    h6: {
-      lineHeight: 1.8,
-    },
-    caption: {
-      fontFamily: 'Nunito Sans',
-    },
-    overline: {
-      fontFamily: 'Nunito Sans',
-    },
-    h5: {
-      lineHeight: 1.45,
-    },
-    button: {
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Bitter',
     },
     body2: {
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Bitter',
     },
-    subtitle2: {
-      fontFamily: 'Nunito Sans',
+    button: {
+      fontFamily: 'Bitter',
+      fontWeight: 500,
     },
-    subtitle1: {
-      fontFamily: 'Nunito Sans',
+    caption: {
+      fontFamily: 'Bitter',
+    },
+    overline: {
+      fontFamily: 'Bitter',
+    },
+    h1: {
+      fontWeight: 400,
+    },
+    h2: {
+      fontWeight: 400,
     },
   },
 });
