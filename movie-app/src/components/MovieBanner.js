@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
@@ -25,13 +24,13 @@ const MovieBanner = () => {
   };
 
   return (
-    <Container>
+    <>
       {isLoading ? (
         'Loading...'
       ) : (
         <Box>
           {movie ? (
-            <Carousel navButtonsAlwaysVisible={true} duration={1000}>
+            <Carousel navButtonsAlwaysVisible={true} duration={1000} autoPlay={false}>
               {item.map((movie) => (
                 <Box
                   key={movie.id}
@@ -98,7 +97,7 @@ const MovieBanner = () => {
           )}
         </Box>
       )}
-    </Container>
+    </>
   );
 };
 
