@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import defaultTheme from '../theme/defaultTheme';
+import { useNavigate } from 'react-router-dom';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -17,6 +18,11 @@ const MovieBanner = () => {
   } = useFetch(url);
 
   const item = movie && movie.slice(0, 5);
+  const navigate = useNavigate();
+
+  const moveDetailPage = (movieId) => {
+    navigate(`/movie/${movieId}`);
+  };
 
   return (
     <Container>
@@ -27,7 +33,13 @@ const MovieBanner = () => {
           {movie ? (
             <Carousel navButtonsAlwaysVisible={true} duration={1000}>
               {item.map((movie) => (
-                <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
+                <Box
+                  key={movie.id}
+                  sx={{ width: '100%', maxHeight: '500px' }}
+                  onClick={() => {
+                    moveDetailPage(movie.id);
+                  }}
+                >
                   <Typography
                     sx={{
                       position: 'absolute',
