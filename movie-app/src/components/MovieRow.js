@@ -86,4 +86,4 @@ function MovieRow({ title, data: movies, isLoading, error }) {
   );
 }
 
-export default MovieRow;
+export default React.memo(MovieRow);
