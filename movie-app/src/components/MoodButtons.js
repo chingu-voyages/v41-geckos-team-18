@@ -1,5 +1,5 @@
 import { Grid, Button } from '@mui/material';
-import movieMoods from '../data';
+import { movieMoods } from '../data';
 
 function MoodButtons({ setUrl }) {
   return (

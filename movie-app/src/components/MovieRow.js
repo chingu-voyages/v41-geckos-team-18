@@ -1,21 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import useFetch from '../hooks/useFetch';
-import MoodButtons from './MoodButtons';
 import './MovieRow.css';
+import { isValid } from '../data';
+import { Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
-function MovieRow({ title }) {
-  const [url, setUrl] = useState(`/api/fetch-trending-all`);
-  const {
-    data: { results: movie },
-    error,
-    isLoading,
-  } = useFetch(url);
-
+function MovieRow({ title, data: movies, isLoading, error }) {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [open, setOpen] = React.useState(false);
   const handleOpen = (movieData) => {
@@ -37,37 +30,34 @@ function MovieRow({ title }) {
   };
 
   return (
-    <Container sx={{ position: 'relative' }}>
+    <>
       <Typography component="h1" variant="h5">
         {title}
       </Typography>
-      <MoodButtons setUrl={setUrl} />
 
       {isLoading ? (
         'Loading...'
       ) : (
         <>
-          {movie ? (
-            <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
-              {movie.map((movie) => (
-                <Box key={movie.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
-                  <img
-                    className="poster"
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt={movie.name}
-                    onClick={() => handleOpen(movie)}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </Box>
-              ))}
-            </Box>
-          ) : (
-            error
-          )}
+          <Box sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
+            {isValid(movies)
+              ? movies.map((movies) => (
+                  <Box key={movies.id} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '300px' }}>
+                    <img
+                      className="poster"
+                      src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                      alt={movies.name}
+                      onClick={() => handleOpen(movies)}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        cursor: 'pointer',
+                      }}
+                    />
+                  </Box>
+                ))
+              : error}
+          </Box>
           <Modal open={open} onClose={handleClose}>
             <Box sx={style}>
               <img
@@ -85,11 +75,14 @@ function MovieRow({ title }) {
                   : selectedMovie.first_air_date}
               </Typography>
               <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+              <Link variant="button" component={RouterLink} to={`/movie/${selectedMovie.id}`}>
+                View Details
+              </Link>
             </Box>
           </Modal>
         </>
       )}
-    </Container>
+    </>
   );
 }
 

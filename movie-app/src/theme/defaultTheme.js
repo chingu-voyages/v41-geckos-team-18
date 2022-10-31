@@ -4,17 +4,28 @@ const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#F50057',
+      light: '#0037B9',
+      main: '#2B52D4',
+      dark: '#0037B9',
     },
     secondary: {
-      main: '#0f0',
+      light: '#BFC5E8',
+      main: '#575D7B',
+      dark: '#292F4A',
+    },
+    tertiary: {
+      light: '#EFB4E2',
+      main: '#7E4E76',
+      dark: '#4B2146',
     },
     error: {
-      main: '#b00020',
+      light: '#FFB4AB',
+      main: '#BA1A1A',
+      dark: '#690005',
     },
     background: {
-      default: '#121212',
-      paper: '#121212',
+      default: '#1B1B1F',
+      paper: '#45464F',
     },
     text: {
       primary: '#fff',
@@ -24,26 +35,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'Roboto',
     h1: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     h2: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     h3: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     h4: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     h5: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     h6: {
-      fontWeight: 700,
+      fontFamily: 'Nanum Myeongjo',
+      fontWeight: 400,
     },
     button: {
+      fontFamily: 'Roboto',
       fontWeight: 700,
     },
   },
