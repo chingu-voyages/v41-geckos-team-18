@@ -76,7 +76,12 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                   : selectedMovie.first_air_date}
               </Typography>
               <Typography>vote_average : {selectedMovie.vote_average}</Typography>
-              <Link variant="button" component={RouterLink} to={`/movie/${selectedMovie.id}`}>
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to={`/movie/${selectedMovie.id}`}
+                  onClick={handleClose}
+                >
                 View Details
               </Link>
             </Box>
