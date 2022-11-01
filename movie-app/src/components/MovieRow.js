@@ -36,6 +36,11 @@ function MovieRow({ title, data: movies, isLoading, error }) {
 
   const isMobile = useMediaQuery('(max-width: 500px)');
 
+  const createOverview = (overview) => {
+    let result = overview.split(' ').join(' ') + '..';
+    return result;
+  };
+
   return (
     <>
       <Typography component="h1" variant="h5">
@@ -91,11 +96,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                 </Box>
 
                 <Typography id="modal-modal-description">
-                  {!selectedMovie.overview
-                    ? ''
-                    : selectedMovie.overview.length > 150
-                    ? selectedMovie.overview.substring(0, 150) + '...'
-                    : selectedMovie.overview}
+                  {selectedMovie.overview ? createOverview(selectedMovie.overview) : ''}
                 </Typography>
 
                 <Button
