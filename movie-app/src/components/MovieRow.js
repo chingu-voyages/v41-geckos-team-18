@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import './MovieRow.css';
 import { isValid } from '../data';
 import { Button } from '@mui/material';
@@ -28,13 +27,6 @@ function MovieRow({ title, data: movies, isLoading, error }) {
     bgcolor: 'background.paper',
     boxShadow: 24,
   };
-
-  const mobileModalStyle = {
-    ...desktopModalStyle,
-    width: '90%',
-  };
-
-  const isMobile = useMediaQuery('(max-width: 500px)');
 
   const createOverview = (overview) => {
     let result = overview.split(' ').join(' ') + '..';
@@ -71,7 +63,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
               : error}
           </Box>
           <Modal open={open} onClose={handleClose}>
-            <Box sx={isMobile ? mobileModalStyle : desktopModalStyle}>
+            <Box sx={desktopModalStyle}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${selectedMovie.backdrop_path}`}
                 alt={`${selectedMovie.title}'s Banner`}
