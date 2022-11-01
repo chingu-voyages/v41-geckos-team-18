@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import { useMediaQuery } from '@material-ui/core';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import './MovieRow.css';
 import { isValid } from '../data';
 import { Button } from '@mui/material';
