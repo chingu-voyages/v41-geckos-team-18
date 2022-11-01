@@ -1,4 +1,5 @@
 import MovieRow from '../components/MovieRow';
+import MovieBanner from '../components/MovieBanner';
 import useFetch from '../hooks/useFetch';
 import { Container } from '@mui/material';
 
@@ -9,6 +10,7 @@ export default function Main() {
 
   return (
     <Container>
+      <MovieBanner />
       {
         <MovieRow
           title="Trending Movie"

@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
+import defaultTheme from '../theme/defaultTheme';
+import { useNavigate } from 'react-router-dom';
+import './MovieBanner.css';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -16,24 +18,35 @@ const MovieBanner = () => {
   } = useFetch(url);
 
   const item = movie && movie.slice(0, 5);
+  const navigate = useNavigate();
+
+  const moveDetailPage = (movieId) => {
+    navigate(`/movie/${movieId}`);
+  };
 
   return (
-    <Container>
+    <>
       {isLoading ? (
         'Loading...'
       ) : (
         <Box>
           {movie ? (
-            <Carousel navButtonsAlwaysVisible={true} duration={1000}>
+            <Carousel navButtonsAlwaysVisible={true} duration={1000} autoPlay={false}>
               {item.map((movie) => (
-                <Box key={movie.id} sx={{ width: '100%', maxHeight: '500px' }}>
+                <Box
+                  key={movie.id}
+                  sx={{ width: '100%', maxHeight: '500px' }}
+                  onClick={() => {
+                    moveDetailPage(movie.id);
+                  }}
+                  className="gradient"
+                >
                   <Typography
                     sx={{
                       position: 'absolute',
                       top: '5%',
                       left: '10%',
-                      bgcolor: '#E0E0E0',
-                      color: '#000',
+                      bgcolor: defaultTheme.palette.secondary.main,
                       borderRadius: '20px',
                     }}
                     p={1}
@@ -86,7 +99,7 @@ const MovieBanner = () => {
           )}
         </Box>
       )}
-    </Container>
+    </>
   );
 };
 
