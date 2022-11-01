@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+// import { useMediaQuery } from '@material-ui/core';
 import './MovieRow.css';
 import { isValid } from '../data';
 import { Button } from '@mui/material';
@@ -22,10 +23,16 @@ function MovieRow({ title, data: movies, isLoading, error }) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 450,
     bgcolor: 'background.paper',
     boxShadow: 24,
   };
+
+  // const mobileModalStyle = {
+  //   width: '90%',
+  // };
+
+  // const isMobile = useMediaQuery('(max-width: 500px)');
 
   return (
     <>
@@ -68,18 +75,30 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                 <Typography id="modal-modal-title" variant="h4" component="h2">
                   {selectedMovie.title ? selectedMovie.title : selectedMovie.name}
                 </Typography>
-                <Typography id="modal-modal-description">{selectedMovie.overview}</Typography>
-                <Typography>
-                  {selectedMovie.release_date
-                    ? selectedMovie.release_date
-                    : selectedMovie.first_air_date}
+
+                <Box sx={{ display: 'flex' }}>
+                  <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+                  <Typography>
+                    {selectedMovie.release_date
+                      ? selectedMovie.release_date
+                      : selectedMovie.first_air_date}
+                  </Typography>
+                </Box>
+
+                <Typography id="modal-modal-description">
+                  {!selectedMovie.overview
+                    ? ''
+                    : selectedMovie.overview.length > 150
+                    ? selectedMovie.overview.substring(0, 150) + '...'
+                    : selectedMovie.overview}
                 </Typography>
-                <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+
                 <Button
                   variant="contained"
                   component={RouterLink}
                   to={`/movie/${selectedMovie.id}`}
                   onClick={handleClose}
+                  sx={{ width: '150px', marginRight: 0 }}
                 >
                   View Details
                 </Button>

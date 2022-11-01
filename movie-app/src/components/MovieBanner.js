@@ -31,7 +31,7 @@ const MovieBanner = () => {
       ) : (
         <Box>
           {movie ? (
-            <Carousel navButtonsAlwaysVisible={true} duration={1000} autoPlay={false}>
+            <Carousel navButtonsAlwaysVisible={true} duration={1000}>
               {item.map((movie) => (
                 <Box
                   key={movie.id}
