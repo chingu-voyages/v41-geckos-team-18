@@ -8,6 +8,7 @@ import './MovieRow.css';
 import { isValid } from '../data';
 import { Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import StarIcon from '@mui/icons-material/Star';
 
 function MovieRow({ title, data: movies, isLoading, error }) {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -23,7 +24,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 450,
+    width: 500,
     bgcolor: 'background.paper',
     boxShadow: 24,
   };
@@ -67,18 +68,21 @@ function MovieRow({ title, data: movies, isLoading, error }) {
           <Modal open={open} onClose={handleClose}>
             <Box sx={isMobile ? mobileModalStyle : desktopModalStyle}>
               <img
-                src={`https://image.tmdb.org/t/p/w300/${selectedMovie.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w500/${selectedMovie.backdrop_path}`}
                 alt={`${selectedMovie.title}'s Banner`}
                 loading="lazy"
                 style={{ width: '100%' }}
               />
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, p: 4, pt: 1.5 }}>
-                <Typography id="modal-modal-title" variant="h4" component="h2">
+                <Typography id="modal-modal-title" variant="h4" component="h2" mb={2}>
                   {selectedMovie.title ? selectedMovie.title : selectedMovie.name}
                 </Typography>
 
-                <Box sx={{ display: 'flex' }}>
-                  <Typography>vote_average : {selectedMovie.vote_average}</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Typography sx={{ display: 'flex', alignItems: 'center', marginRight: '2em' }}>
+                    <StarIcon />{' '}
+                    {selectedMovie.vote_average ? selectedMovie.vote_average.toFixed(2) : ''}
+                  </Typography>
                   <Typography>
                     {selectedMovie.release_date
                       ? selectedMovie.release_date
@@ -99,7 +103,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                   component={RouterLink}
                   to={`/movie/${selectedMovie.id}`}
                   onClick={handleClose}
-                  sx={{ width: '150px' }}
+                  sx={{ width: '150px', marginLeft: 'auto' }}
                 >
                   View Details
                 </Button>
