@@ -8,6 +8,7 @@ import { isValid } from '../data';
 import { Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
+import { styled } from '@mui/material/styles';
 
 function MovieRow({ title, data: movies, isLoading, error }) {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -18,15 +19,24 @@ function MovieRow({ title, data: movies, isLoading, error }) {
   };
   const handleClose = () => setOpen(false);
 
-  const desktopModalStyle = {
+  const Root = styled('div')(({ theme }) => ({
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 500,
-    bgcolor: 'background.paper',
+    backgroundColor: '#45464F',
     boxShadow: 24,
-  };
+
+    [theme.breakpoints.down('md')]: {
+      width: '80%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '500px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '600px',
+    },
+  }));
 
   const createOverview = (overview) => {
     let result = overview.split(' ').join(' ') + '..';
@@ -63,7 +73,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
               : error}
           </Box>
           <Modal open={open} onClose={handleClose}>
-            <Box sx={desktopModalStyle}>
+            <Root>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${selectedMovie.backdrop_path}`}
                 alt={`${selectedMovie.title}'s Banner`}
@@ -101,7 +111,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                   View Details
                 </Button>
               </Box>
-            </Box>
+            </Root>
           </Modal>
         </>
       )}
