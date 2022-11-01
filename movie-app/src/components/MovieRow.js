@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-// import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@material-ui/core';
 import './MovieRow.css';
 import { isValid } from '../data';
 import { Button } from '@mui/material';
@@ -18,7 +18,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
   };
   const handleClose = () => setOpen(false);
 
-  const style = {
+  const desktopModalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -28,11 +28,12 @@ function MovieRow({ title, data: movies, isLoading, error }) {
     boxShadow: 24,
   };
 
-  // const mobileModalStyle = {
-  //   width: '90%',
-  // };
+  const mobileModalStyle = {
+    ...desktopModalStyle,
+    width: '90%',
+  };
 
-  // const isMobile = useMediaQuery('(max-width: 500px)');
+  const isMobile = useMediaQuery('(max-width: 500px)');
 
   return (
     <>
@@ -64,7 +65,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
               : error}
           </Box>
           <Modal open={open} onClose={handleClose}>
-            <Box sx={style}>
+            <Box sx={isMobile ? mobileModalStyle : desktopModalStyle}>
               <img
                 src={`https://image.tmdb.org/t/p/w300/${selectedMovie.backdrop_path}`}
                 alt={`${selectedMovie.title}'s Banner`}
@@ -98,7 +99,7 @@ function MovieRow({ title, data: movies, isLoading, error }) {
                   component={RouterLink}
                   to={`/movie/${selectedMovie.id}`}
                   onClick={handleClose}
-                  sx={{ width: '150px', marginRight: 0 }}
+                  sx={{ width: '150px' }}
                 >
                   View Details
                 </Button>
