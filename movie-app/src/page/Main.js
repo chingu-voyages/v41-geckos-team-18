@@ -1,25 +1,14 @@
 import MovieRow from '../components/MovieRow';
 import MovieBanner from '../components/MovieBanner';
-import useFetch from '../hooks/useFetch';
 import { Container } from '@mui/material';
+import GenreGallery from '../components/GenreGallery';
 
 export default function Main() {
-  const url = `/api/fetch-trending-movies`;
-  const { data, error, isLoading } = useFetch(url);
-  const { results } = data || {};
-
   return (
     <Container>
       <MovieBanner />
-      {
-        <MovieRow
-          title="Trending Movie"
-          id="Trend"
-          data={results}
-          isLoading={isLoading}
-          error={error}
-        />
-      }
+      <MovieRow title="Trending Movie" id="Trend" url="/api/fetch-trending-movies" />
+      <GenreGallery />
     </Container>
   );
 }
