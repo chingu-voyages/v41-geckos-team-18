@@ -13,7 +13,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
 
   useEffect(() => {
     totalPages && setTotalPages(totalPages);
-  }, [totalPages]);
+  }, [setTotalPages, totalPages]);
 
   const [selectedMovie, setSelectedMovie] = useState({});
   const [open, setOpen] = useState(false);
