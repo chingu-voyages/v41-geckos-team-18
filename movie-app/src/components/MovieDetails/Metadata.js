@@ -30,7 +30,7 @@ export default function Metadata({
       {/* Movie Poster */}
       <Grid item md={4}>
         <img
-          src={`${BASE_IMG_URL}original${posterUrl}`}
+          src={`${BASE_IMG_URL}/w500${posterUrl}`}
           alt={`${title} Poster`}
           style={{
             width: '100%',
