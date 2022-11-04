@@ -9,17 +9,15 @@ export default function Main() {
   const { results } = data || {};
 
   return (
-    <Container>
+    <Container component="main">
       <MovieBanner />
-      {
-        <MovieRow
-          title="Trending Movie"
-          id="Trend"
-          data={results}
-          isLoading={isLoading}
-          error={error}
-        />
-      }
+      <MovieRow
+        title="Trending Movie"
+        id="Trend"
+        data={results}
+        isLoading={isLoading}
+        error={error}
+      />
     </Container>
   );
 }
