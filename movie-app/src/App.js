@@ -1,13 +1,11 @@
-import SearchBar from './components/searchbar/SearchBar';
+import SearchBar from './components/SearchBar';
 import './App.css';
 import Main from './page/Main';
 
 function App() {
   return (
     <>
-      <nav>
-        <SearchBar />
-      </nav>
+      <SearchBar />
       <Main />
     </>
   );
