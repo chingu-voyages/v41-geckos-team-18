@@ -10,6 +10,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Main />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="movie">
           <Route path=":movieId" element={<MovieDetails />} />
         </Route>
