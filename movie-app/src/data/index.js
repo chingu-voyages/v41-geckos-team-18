@@ -14,7 +14,7 @@ const getGenreMoodPairings = () => {
     {name: 'blissful', genre: `${fantasy},${animation},${family}`},
     {name: 'curious', genre: `${documentary}`},
     {name: 'tense', genre: `${thriller},${mystery},${horror}`},
-    {name: 'thought provoking', genre: `${mystery},${scienceFiction},${adventure}`},
+    {name: 'thought provoking', genre: `${mystery},${scienceFiction}`},
     {name: 'musical', genre: `${music},${comedy},${romance}`},
   ];
 };
@@ -23,7 +23,7 @@ export const movieMoods = getGenreMoodPairings();
 
 export const isValid = (obj) => obj && Object.keys(obj).length > 0;
 
-export const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
+export const BASE_IMG_URL = 'https://image.tmdb.org/t/p';
 
 export const getGenres = (obj) => {
   const result = obj.map((el) => el.name);

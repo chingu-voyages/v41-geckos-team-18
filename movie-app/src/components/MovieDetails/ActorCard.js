@@ -8,7 +8,7 @@ export default function ActorCard({ data }) {
       <Grid key={name} item>
         <Link to="/" component="button" underline="none">
           <img
-            src={`${BASE_IMG_URL}w500${profilePath}`}
+            src={`${BASE_IMG_URL}/w300${profilePath}`}
             alt={`${name}`}
             style={{ width: '12rem' }}
           />
