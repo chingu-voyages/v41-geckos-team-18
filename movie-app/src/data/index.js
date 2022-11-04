@@ -4,19 +4,19 @@ const movieGenres = { action: 28, adventure: 12, animation: 16, comedy: 35, crim
 // prettier-ignore
 const getGenreMoodPairings = () => {
   const { action, adventure, animation, comedy, crime, documentary, drama, family, fantasy, history, horror, music, mystery, romance, scienceFiction, thriller, war } = movieGenres;
-  return {
-    funny: `${comedy},${adventure}`,
-    romantic: `${romance}`,
-    dark: `${crime},${thriller},${mystery}`,
-    tense: `${thriller},${mystery},${horror}`,
-    excited: `${action},${adventure}`,
-    blissful: `${fantasy},${animation},${family}`,
-    historic: `${war},${history}`,
-    emotional: `${drama},${romance},${mystery}`,
-    curious: `${documentary}`,
-    thoughtProvoking: `${mystery},${scienceFiction},${adventure}`,
-    musical: `${music},${comedy},${romance}`,
-  };
+  return [
+    {name: 'funny', genre: `${comedy},${adventure}`},
+    {name: 'romantic', genre: `${romance}`},
+    {name: 'dark', genre: `${crime},${thriller},${mystery}`},
+    {name: 'excited', genre: `${action},${adventure}`},
+    {name: 'emotional', genre: `${drama},${romance},${mystery}`},
+    {name: 'historic', genre: `${war},${history}`},
+    {name: 'blissful', genre: `${fantasy},${animation},${family}`},
+    {name: 'curious', genre: `${documentary}`},
+    {name: 'tense', genre: `${thriller},${mystery},${horror}`},
+    {name: 'thought provoking', genre: `${mystery},${scienceFiction},${adventure}`},
+    {name: 'musical', genre: `${music},${comedy},${romance}`},
+  ];
 };
 
 export const movieMoods = getGenreMoodPairings();
