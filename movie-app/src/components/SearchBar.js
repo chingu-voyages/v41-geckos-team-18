@@ -38,7 +38,7 @@ const SearchBar = () => {
           NANUM
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Search
+          <SearchBox
             sx={{
               marginRight: '8px',
               height: '36px',
@@ -63,7 +63,7 @@ const SearchBar = () => {
               onKeyPress={handleKeyPress}
             />
             <SearchIcon sx={{ margin: '0 10px' }} onClick={searchContent} />
-          </Search>
+          </SearchBox>
 
           <DesktopButtonStyle>
             <FavoriteIcon sx={{ mr: 1 }} />
@@ -78,7 +78,7 @@ const SearchBar = () => {
   );
 };
 
-const Search = styled('div')(({ theme }) => ({
+const SearchBox = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: '#4f4f4f',
