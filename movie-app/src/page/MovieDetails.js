@@ -21,7 +21,7 @@ export default function MovieDetails() {
     details: { backdrop_path: bannerUrl, title } = {}, // If data === null, return empty object
     videos: { results: videoList } = {},
     credits: { cast: casts } = {},
-    similar: { results: similars } = {},
+    similar: similars,
   } = data || {};
 
   return (
@@ -51,7 +51,7 @@ export default function MovieDetails() {
                 </Typography>
                 <Casts casts={casts} />
               </Grid>
-              <Grid item>
+              <Grid item sx={{ overflowX: 'hidden' }}>
                 <MovieRow title="Similar" data={similars} />
               </Grid>
             </Grid>
