@@ -9,6 +9,7 @@ import Metadata from '../components/MovieDetails/Metadata';
 import Banner from '../components/MovieDetails/Banner';
 import Trailers from '../components/MovieDetails/Trailers';
 import StatusBar from '../components/MovieDetails/StatusBar';
+import { useTheme } from '@emotion/react';
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -24,6 +25,8 @@ export default function MovieDetails() {
     similar: similars,
   } = data || {};
 
+  const theme = useTheme();
+
   return (
     <>
       {!isValid(data) ? (
@@ -31,28 +34,34 @@ export default function MovieDetails() {
       ) : (
         <>
           <Banner bannerUrl={bannerUrl} title={title} />
-          <Container maxWidth="md">
-            <Grid container rowSpacing={4}>
+          <Container maxWidth="md" sx={{ py: theme.spacing(6) }}>
+            <Grid container gap={4}>
               <Grid item width="100%">
                 <StatusBar data={data} />
               </Grid>
               <Grid item>
+                <Typography variant="h4" component="h2" mb={2}>
+                  {title}
+                </Typography>
                 <Metadata data={data} />
               </Grid>
               <Grid item>
-                <Typography variant="h5" component="h3">
+                <Typography variant="h4" component="h2" mb={2}>
                   Trailers
                 </Typography>
                 <Trailers trailers={getTrailers(videoList)} />
               </Grid>
               <Grid item>
-                <Typography variant="h5" component="h3">
+                <Typography variant="h4" component="h2" mb={2}>
                   Casts
                 </Typography>
                 <Casts casts={casts} />
               </Grid>
               <Grid item sx={{ overflowX: 'hidden' }}>
-                <MovieRow title="Similar" data={similars} />
+                <Typography variant="h4" component="h2" mb={2}>
+                  Similars
+                </Typography>
+                <MovieRow data={similars} />
               </Grid>
             </Grid>
           </Container>
