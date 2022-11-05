@@ -1,6 +1,6 @@
 import MovieRow from '../components/MovieRow';
 import MovieBanner from '../components/MovieBanner';
-import { Container } from '@mui/material';
+import { Container, Grid, Typography, useTheme } from '@mui/material';
 import MoodGallery from '../components/MoodGallery/MoodGallery';
 import useFetch from '../hooks/useFetch';
 
@@ -10,9 +10,23 @@ export default function Main() {
 
   return (
     <Container component="main">
-      <MovieBanner />
-      <MovieRow title="Trending Movie" id="Trend" data={data} error={error} isLoading={isLoading} />
-      <MoodGallery />
+      <Grid container gap={4}>
+        <Grid item sm>
+          <MovieBanner />
+        </Grid>
+        <Grid item sm>
+          <Typography variant="h4" component="h2" mb={2}>
+            Trending
+          </Typography>
+          <MovieRow id="Trend" data={data} error={error} isLoading={isLoading} />
+        </Grid>
+        <Grid item sm>
+          <Typography variant="h4" component="h2">
+            What are you in the mood for?
+          </Typography>
+          <MoodGallery />
+        </Grid>
+      </Grid>
     </Container>
   );
 }
