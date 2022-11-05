@@ -1,14 +1,19 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { BASE_IMG_URL } from '../../data';
 
 export default function ActorCard({ data }) {
   const { name, profile_path: profilePath } = data || {};
+
+  const theme = useTheme();
+  const isMobileDown = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       <Grid
         key={name}
         item
         sm
+        width={isMobileDown ? 163.5 : 'auto'}
         sx={{
           position: 'relative',
         }}
