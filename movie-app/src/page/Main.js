@@ -1,6 +1,6 @@
 import MovieRow from '../components/MovieRow';
 import MovieBanner from '../components/MovieBanner';
-import { Container, Grid, Typography, useTheme } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import MoodGallery from '../components/MoodGallery/MoodGallery';
 import useFetch from '../hooks/useFetch';
 
