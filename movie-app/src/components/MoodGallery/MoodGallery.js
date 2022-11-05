@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Pagination, Box } from '@mui/material';
+import { Typography, Pagination, Box, useTheme, useMediaQuery } from '@mui/material';
 import { movieMoods } from '../../data';
 import MoodTabs from './MoodTabs';
 import MoodContent from './MoodContent';
@@ -16,6 +16,9 @@ export default function MoodGallery() {
   };
 
   const handlePageChange = (e, newPage) => setCurrentPage(newPage);
+
+  const theme = useTheme();
+  const isMobileDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   function TabPanel({ children, value, index, ...other }) {
     return (
@@ -51,6 +54,7 @@ export default function MoodGallery() {
         onChange={handlePageChange}
         page={currentPage}
         defaultPage={1}
+        size={isMobileDown ? 'small' : 'medium'}
         color="secondary"
         sx={{ display: 'flex', placeContent: 'center' }}
       />
