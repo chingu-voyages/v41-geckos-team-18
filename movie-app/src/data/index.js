@@ -31,8 +31,9 @@ export const getGenres = (obj) => {
 };
 
 export const getKeywords = (obj) => {
-  const result = obj.map((el) => el.name);
-  return result.join(', ');
+  const arr = obj.map((el) => el.name.charAt(0).toUpperCase() + el.name.slice(1));
+  const result = arr.join(', ');
+  return result;
 };
 
 export const getTopFive = (arr) =>
@@ -46,3 +47,16 @@ export const getTrailers = (arr) =>
     }
     return list;
   }, []);
+
+export const getRuntime = (n) => {
+  const num = n;
+  const hours = num / 60;
+  const rhours = Math.floor(hours);
+  const minutes = (hours - rhours) * 60;
+  const rminutes = Math.round(minutes);
+  return rhours + ' h ' + rminutes + ' minutes';
+};
+
+export const getReleaseYear = (date) => {
+  return date.slice(0, 4);
+};

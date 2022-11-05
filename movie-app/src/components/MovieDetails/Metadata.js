@@ -1,42 +1,42 @@
-import { Grid, Typography } from '@mui/material';
-import { BASE_IMG_URL } from '../../data';
+import { Container, Grid, Typography } from '@mui/material';
+import { BASE_IMG_URL, getReleaseYear, getRuntime } from '../../data';
+import { getGenres, getKeywords } from '../../data';
+import StarRating from '../StarRating';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-export default function Metadata({
-  title,
-  popularity,
-  releaseDate,
-  genres,
-  overview,
-  keywords,
-  posterUrl,
-}) {
+export default function Metadata({ data }) {
+  // Destructuring nullable object. Prevent ".map() is not a function" error
+  // prettier-ignore
+  const {
+    details: {
+      title, popularity, release_date: releaseDate, genres, overview, poster_path: posterUrl, vote_average: voteAverage, runtime,
+    } = {},
+    keywords: { keywords } = {},
+  } = data || {};
+
   return (
-    <Grid container gridColumn={2} justifyContent="center">
-      <Grid item md={8} sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Typography variant="h2">{title}</Typography>
-        <Typography variant="body1">Popularity #{popularity}</Typography>
-        <Typography variant="body1">Release Date: {releaseDate}</Typography>
-        <Typography variant="body1">Genres: {genres}</Typography>
-        <Typography variant="h5" component="h3">
-          Overview:
-        </Typography>
-        <Typography variant="body1">{overview}</Typography>
-        <Typography variant="h5" component="h3">
-          Keywords:
-        </Typography>
-        <Typography variant="body1">{keywords}</Typography>
+    <>
+      {/* <Grid container item gap={2}>
+        <Grid item>
+          <StarRating voteAverage={voteAverage} />
+        </Grid>
+        <Grid item>{getRuntime(runtime)}</Grid>
+        <Grid item>{getReleaseYear(releaseDate)}</Grid>
+        <Grid item>
+          <FavoriteBorderIcon />
+        </Grid>
+      </Grid> */}
+      <Grid container item gap={2}>
+        <Grid item>
+          <Typography variant="h2">{title}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1">Keywords: {getKeywords(keywords)}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1">{overview}</Typography>
+        </Grid>
       </Grid>
-
-      {/* Movie Poster */}
-      <Grid item md={4}>
-        <img
-          src={`${BASE_IMG_URL}/w500${posterUrl}`}
-          alt={`${title} Poster`}
-          style={{
-            width: '100%',
-          }}
-        />
-      </Grid>
-    </Grid>
+    </>
   );
 }
