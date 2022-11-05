@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pagination, Box } from '@mui/material';
+import { Typography, Pagination, Box } from '@mui/material';
 import { movieMoods } from '../../data';
 import MoodTabs from './MoodTabs';
 import MoodContent from './MoodContent';
@@ -26,7 +26,11 @@ export default function MoodGallery() {
   }
 
   return (
-    <>
+    <Box>
+      <Typography variant="h4" component="h2">
+        What are you in the mood for?
+      </Typography>
+
       <MoodTabs value={value} handleTabChange={handleTabChange} />
 
       {/* Mood Content */}
@@ -50,6 +54,6 @@ export default function MoodGallery() {
         color="secondary"
         sx={{ display: 'flex', placeContent: 'center' }}
       />
-    </>
+    </Box>
   );
 }

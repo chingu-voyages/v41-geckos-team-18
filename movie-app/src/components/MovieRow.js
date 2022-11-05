@@ -18,11 +18,10 @@ function MovieRow({ title, url, data, error, isLoading }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <>
-      <Typography component="h1" variant="h5">
+    <Box>
+      <Typography variant="h4" component="h2" mb={2}>
         {title}
       </Typography>
-
       {isLoading ? (
         'Loading...'
       ) : (
@@ -49,7 +48,7 @@ function MovieRow({ title, url, data, error, isLoading }) {
           <MovieModal open={open} handleClose={handleClose} selectedMovie={selectedMovie} />
         </>
       )}
-    </>
+    </Box>
   );
 }
 

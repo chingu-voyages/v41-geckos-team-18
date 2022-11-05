@@ -1,32 +1,23 @@
 import MovieRow from '../components/MovieRow';
 import MovieBanner from '../components/MovieBanner';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Box, useTheme } from '@mui/material';
 import MoodGallery from '../components/MoodGallery/MoodGallery';
 import useFetch from '../hooks/useFetch';
 
 export default function Main() {
   const trendingUrl = '/api/fetch-trending-movies';
   const { data, error, isLoading } = useFetch(trendingUrl);
+  const theme = useTheme();
 
   return (
-    <Container component="main">
-      <Grid container gap={4}>
-        <Grid item sm>
-          <MovieBanner />
-        </Grid>
-        <Grid item sm>
-          <Typography variant="h4" component="h2" mb={2}>
-            Trending
-          </Typography>
-          <MovieRow id="Trend" data={data} error={error} isLoading={isLoading} />
-        </Grid>
-        <Grid item sm>
-          <Typography variant="h4" component="h2">
-            What are you in the mood for?
-          </Typography>
+    <>
+      <MovieBanner />
+      <Container component="main" sx={{ pb: theme.spacing(6) }}>
+        <Box gap={6} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <MovieRow id="Trend" title="Trending" data={data} error={error} isLoading={isLoading} />
           <MoodGallery />
-        </Grid>
-      </Grid>
-    </Container>
+        </Box>
+      </Container>
+    </>
   );
 }

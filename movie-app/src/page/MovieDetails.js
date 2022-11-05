@@ -35,7 +35,7 @@ export default function MovieDetails() {
         <>
           <Banner bannerUrl={bannerUrl} title={title} />
           <Container maxWidth="md" sx={{ py: theme.spacing(6) }}>
-            <Grid container gap={4}>
+            <Grid container gap={6}>
               <Grid item width="100%">
                 <StatusBar data={data} />
               </Grid>
