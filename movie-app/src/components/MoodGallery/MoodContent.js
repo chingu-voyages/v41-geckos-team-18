@@ -26,7 +26,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <>Loading...</>
       ) : (
         <Box sx={{ display: 'flex', overflowX: 'scroll' }}>
           {!isValid(movies)
