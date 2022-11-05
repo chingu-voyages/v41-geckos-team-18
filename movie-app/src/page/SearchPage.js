@@ -43,25 +43,27 @@ const SearchPage = () => {
               gap: '5px 10px',
             }}
           >
-            {isValid(movies)
-              ? movies.map((movies) => (
-                  <Box key={movies.id} sx={{ width: '30%', maxWidth: '250px' }}>
-                    <img
-                      className="poster"
-                      src={`${BASE_IMG_URL}/w300/${
-                        movies.poster_path ? movies.poster_path : movies.profile_path
-                      }`}
-                      alt={movies.name}
-                      onClick={() => handleOpen(movies)}
-                      loading="lazy"
-                      style={{
-                        width: '100%',
-                        cursor: 'pointer',
-                      }}
-                    />
-                  </Box>
-                ))
-              : error}
+            {isValid(movies) ? (
+              movies.map((movies) => (
+                <Box key={movies.id} sx={{ width: '30%', maxWidth: '250px' }}>
+                  <img
+                    className="poster"
+                    src={`${BASE_IMG_URL}/w300/${
+                      movies.poster_path ? movies.poster_path : movies.profile_path
+                    }`}
+                    alt={movies.name}
+                    onClick={() => handleOpen(movies)}
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      cursor: 'pointer',
+                    }}
+                  />
+                </Box>
+              ))
+            ) : (
+              <Typography>No search results found.</Typography>
+            )}
           </Box>
           <MovieModal open={open} handleClose={handleClose} selectedMovie={selectedMovie} />
         </>
