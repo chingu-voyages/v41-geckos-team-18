@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -7,13 +7,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
+  const mainPage = useNavigate();
   const inputRef = useRef();
 
   const searchContent = () => {
     console.log(`${inputRef.current.value}`);
-    setSearchValue(inputRef.current.value);
     navigate(`/search?q=${inputRef.current.value}`);
   };
 
@@ -40,7 +39,7 @@ const SearchBar = () => {
           variant="h5"
           component="h1"
           sx={{ cursor: 'pointer' }}
-          onClick={() => window.location.reload()}
+          onClick={() => mainPage('/')}
         >
           NANUM
         </Typography>
