@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Link as RouterLink } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { useTheme } from '@emotion/react';
 
 const SearchBar = () => {
   const inputRef = useRef();
@@ -15,6 +18,9 @@ const SearchBar = () => {
       searchContent();
     }
   };
+
+  const theme = useTheme();
+
   return (
     <div style={{ backgroundColor: '#45464F' }}>
       <Box
@@ -29,14 +35,19 @@ const SearchBar = () => {
           margin: '0 auto',
         }}
       >
-        <Typography
-          variant="h5"
-          component="h1"
-          sx={{ cursor: 'pointer' }}
-          onClick={() => window.location.reload()}
+        <Button
+          component={RouterLink}
+          to="/"
+          variant="text"
+          disableRipple
+          sx={{
+            fontSize: theme.typography.h5.fontSize,
+            fontFamily: theme.typography.h1.fontFamily,
+            color: theme.palette.text.primary,
+          }}
         >
           NANUM
-        </Typography>
+        </Button>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <SearchBox
             sx={{
