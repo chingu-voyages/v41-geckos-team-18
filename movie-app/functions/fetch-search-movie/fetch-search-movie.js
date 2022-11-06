@@ -4,7 +4,7 @@ const handler = async (event) => {
   const { searchTerm } = event.queryStringParameters;
   const API_KEY = `api_key=${process.env.API_KEY}`;
   const BASE_URL = 'https://api.themoviedb.org/3';
-  const url = `${BASE_URL}/search/multi?${API_KEY}&include_adult=false&query=${searchTerm}`;
+  const url = `${BASE_URL}/search/movie?${API_KEY}&include_adult=false&query=${searchTerm}`;
 
   try {
     const { data } = await axios.get(url);
