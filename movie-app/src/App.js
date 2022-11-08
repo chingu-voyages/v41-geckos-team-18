@@ -18,7 +18,7 @@ function App() {
 
       {/* 404 Page */}
       <Route path="*" element={<NotFound />} />
-    </Route
+    </Routes>
   );
 }
 
