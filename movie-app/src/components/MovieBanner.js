@@ -8,6 +8,7 @@ import Rating from '@mui/material/Rating';
 import defaultTheme from '../theme/defaultTheme';
 import { useNavigate } from 'react-router-dom';
 import './MovieBanner.css';
+import LoadingSpinner from './LoadingSpinner';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -27,9 +28,19 @@ const MovieBanner = () => {
   return (
     <>
       {isLoading ? (
-        'Loading...'
+        <Box
+          sx={{
+            width: '100%',
+            height: '500px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <LoadingSpinner isLoading={isLoading} />
+        </Box>
       ) : (
-        <Box>
+        <Box mb={4}>
           {movie ? (
             <Carousel navButtonsAlwaysVisible={true} duration={1000}>
               {item.map((movie) => (
