@@ -39,7 +39,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
           <LoadingSpinner isLoading={isLoading} />
         </Box>
       ) : (
-        <Box mb={3} sx={{ display: 'flex', overflowX: 'scroll' }} className="poster-box">
+        <Box sx={{ display: 'flex', overflowX: 'scroll' }} mb={3} className="poster-box">
           {!isValid(movies)
             ? error
             : movies.map((movie) => {
