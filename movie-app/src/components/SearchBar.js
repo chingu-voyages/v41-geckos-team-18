@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { styled, alpha } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -8,10 +9,15 @@ import { Button } from '@mui/material';
 import { useTheme } from '@emotion/react';
 
 const SearchBar = () => {
+  const navigate = useNavigate();
+  const mainPage = useNavigate();
   const inputRef = useRef();
+
   const searchContent = () => {
     console.log(`${inputRef.current.value}`);
+    navigate(`/search?q=${inputRef.current.value}`);
   };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       searchContent();
@@ -34,16 +40,11 @@ const SearchBar = () => {
           margin: '0 auto',
         }}
       >
-        <Button
-          component={RouterLink}
-          to="/"
-          variant="text"
-          disableRipple
-          sx={{
-            fontSize: theme.typography.h5.fontSize,
-            fontFamily: theme.typography.h1.fontFamily,
-            color: theme.palette.text.primary,
-          }}
+        <Typography
+          variant="h5"
+          component="h1"
+          sx={{ cursor: 'pointer' }}
+          onClick={() => mainPage('/')}
         >
           NANUM
         </Button>
