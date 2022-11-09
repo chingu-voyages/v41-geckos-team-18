@@ -1,0 +1,19 @@
+import React from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+const LoadingSpinner = ({ isLoading }) => {
+  console.log(isLoading);
+  return (
+    <div>
+      <ClipLoader
+        color={'#ffffff'}
+        loading={isLoading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div>
+  );
+};
+
+export default LoadingSpinner;
