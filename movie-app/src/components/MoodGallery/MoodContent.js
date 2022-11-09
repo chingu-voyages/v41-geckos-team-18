@@ -26,7 +26,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <>Loading...</>
       ) : (
         <Box sx={{ display: 'flex', overflowX: 'scroll' }}>
           {!isValid(movies)
@@ -34,7 +34,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
             : movies.map((movie) => {
                 const { title, poster_path: posterUrl } = movie;
                 return (
-                  <Box key={title} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '220px' }}>
+                  <Box key={title} sx={{ width: '100%', mr: 2, mt: 2, minWidth: '200px' }}>
                     <img
                       src={`${BASE_IMG_URL}/w300/${posterUrl}`}
                       loading="lazy"

@@ -2,9 +2,11 @@ import { useRef } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Link as RouterLink } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { useTheme } from '@emotion/react';
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -21,6 +23,9 @@ const SearchBar = () => {
       searchContent();
     }
   };
+
+  const theme = useTheme();
+
   return (
     <div style={{ backgroundColor: '#45464F' }}>
       <Box
@@ -42,7 +47,7 @@ const SearchBar = () => {
           onClick={() => mainPage('/')}
         >
           NANUM
-        </Typography>
+        </Button>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <SearchBox
             sx={{

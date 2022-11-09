@@ -21,31 +21,37 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Nanum Myeongjo, serif',
+    fontFamily: 'Lato, sans-serif',
     fontSize: 14,
     h1: {
-      fontFamily: 'Lato, sans-serif',
+      fontFamily: 'Nanum Myeongjo, serif',
       fontWeight: 400,
+      lineHeight: 2,
     },
     h2: {
-      fontFamily: 'Lato, sans-serif',
+      fontFamily: 'Nanum Myeongjo, serif',
       fontWeight: 400,
+      lineHeight: 2,
     },
     h3: {
-      fontFamily: 'Lato, sans-serif',
+      fontFamily: 'Nanum Myeongjo, serif',
       fontWeight: 400,
+      lineHeight: 1.5,
     },
     h4: {
-      fontFamily: 'Lato, sans-serif',
+      fontFamily: 'Nanum Myeongjo, serif',
       fontWeight: 400,
+      lineHeight: 1.5,
     },
     h5: {
-      fontFamily: 'Lato, sans-serif',
+      fontFamily: 'Nanum Myeongjo, serif',
       fontWeight: 400,
+      lineHeight: 1,
     },
     h6: {
       fontFamily: 'Lato, sans-serif',
       fontWeight: 400,
+      lineHeight: 1,
     },
     subtitle2: {
       fontWeight: 700,
