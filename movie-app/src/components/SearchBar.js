@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useTheme } from '@emotion/react';
 
 const SearchBar = () => {
@@ -47,7 +47,7 @@ const SearchBar = () => {
           onClick={() => mainPage('/')}
         >
           NANUM
-        </Button>
+          </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <SearchBox
             sx={{
