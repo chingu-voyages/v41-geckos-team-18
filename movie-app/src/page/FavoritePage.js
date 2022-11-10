@@ -15,12 +15,10 @@ const FavoritePage = () => {
       let key = localStorage.key(i);
       data.push(JSON.parse(localStorage.getItem(`${key}`)));
     }
-    console.log(data);
     setMovieData(data);
   };
 
   const deleteData = (id) => {
-    console.log(id);
     localStorage.removeItem(`${id}`);
     getData();
   };
