@@ -10,6 +10,13 @@ export default function StatusBar({ data }) {
   const theme = useTheme();
   const isMobileDown = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const favoriteMovie = (data) => {
+    alert('movie');
+    let movieData = data.details;
+    console.log(movieData);
+    localStorage.setItem(`${movieData.id}`, JSON.stringify(movieData));
+  };
+
   return (
     <Grid container item gap={2} alignItems="center" justifyContent="space-between" width="100%">
       <Grid item sx={{ display: 'flex', gap: isMobileDown ? 2 : 4, alignItems: 'center' }}>
@@ -18,7 +25,7 @@ export default function StatusBar({ data }) {
         <Box>{getReleaseYear(releaseDate)}</Box>
       </Grid>
       <Grid item component={Button}>
-        <FavoriteBorderIcon />
+        <FavoriteBorderIcon onClick={() => favoriteMovie(data)} />
       </Grid>
     </Grid>
   );
