@@ -38,7 +38,7 @@ const FavoritePage = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Container>
+    <Container sx={{ height: '80vh' }}>
       <Typography component="h2" variant="h5" sx={{ textAlign: 'center' }} m={3}>
         Favorite Movie
       </Typography>
@@ -46,14 +46,14 @@ const FavoritePage = () => {
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'center',
+          justifyContent: 'start',
           width: '100%',
           gap: '5px 10px',
         }}
       >
         {movieData.length > 0 ? (
           movieData.map((movies) => (
-            <Box key={movies.id} sx={{ width: '30%', maxWidth: '250px', position: 'relative' }}>
+            <Box key={movies.id} sx={{ width: '30%', maxWidth: '200px', position: 'relative' }}>
               <img
                 className="poster"
                 src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}

@@ -11,9 +11,8 @@ export default function StatusBar({ data }) {
   const isMobileDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const favoriteMovie = (data) => {
-    alert('movie');
+    alert('Add favorite movie');
     let movieData = data.details;
-    console.log(movieData);
     localStorage.setItem(`${movieData.id}`, JSON.stringify(movieData));
   };
 
