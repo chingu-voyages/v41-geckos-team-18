@@ -2,13 +2,12 @@
 import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import defaultTheme from '../theme/defaultTheme';
 import { useNavigate } from 'react-router-dom';
 import './MovieBanner.css';
 import LoadingSpinner from './LoadingSpinner';
+import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 const MovieBanner = () => {
   const [url] = useState(`/api/fetch-now-playing`);
@@ -26,6 +25,9 @@ const MovieBanner = () => {
 
   let randomNumber = Math.floor(Math.random() * 5);
   const item = movie && movie.slice(randomNumber, randomNumber + 5);
+
+  const theme = useTheme();
+  const isMobileDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
@@ -57,7 +59,7 @@ const MovieBanner = () => {
                   <Typography
                     sx={{
                       position: 'absolute',
-                      top: '5%',
+                      top: '10%',
                       left: '10%',
                       bgcolor: defaultTheme.palette.secondary.main,
                       borderRadius: '20px',
@@ -67,29 +69,29 @@ const MovieBanner = () => {
                     Movie of the Day
                   </Typography>
 
-                  <Typography
-                    sx={{ position: 'absolute', top: '20%', left: '10%' }}
-                    variant="h3"
-                    component="h1"
-                  >
-                    {movie.title ? movie.title : movie.name}
-                  </Typography>
                   <Box
                     sx={{
                       position: 'absolute',
-                      top: '30%',
+                      top: '20%',
                       left: '10%',
-                      display: 'flex',
-                      margin: '10px 0',
                     }}
                   >
-                    <Rating
-                      name="half-rating-read"
-                      defaultValue={Number((movie.vote_average / 2).toFixed(2))}
-                      precision={0.5}
-                      readOnly
-                    />
-                    <Typography ml={1}>{(movie.vote_average / 2).toFixed(2)}</Typography>
+                    <Typography
+                      sx={{ fontSize: `${isMobileDown ? '1.5em' : '1em'}` }}
+                      variant="h3"
+                      component="h1"
+                    >
+                      {movie.title ? movie.title : movie.name}
+                    </Typography>
+                    <Box sx={{ display: 'flex' }}>
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={Number((movie.vote_average / 2).toFixed(2))}
+                        precision={0.5}
+                        readOnly
+                      />
+                      <Typography ml={1}>{(movie.vote_average / 2).toFixed(2)}</Typography>
+                    </Box>
                   </Box>
 
                   <img
