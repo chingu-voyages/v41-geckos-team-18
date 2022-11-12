@@ -38,23 +38,25 @@ const FavoritePage = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Container sx={{ height: '80vh' }}>
-      <Typography component="h2" variant="h5" sx={{ textAlign: 'left' }} mt={3} mb={3}>
+    <Container sx={{ marginBottom: '5em', minHeight: '90vh' }}>
+      <Typography component="h2" variant="h5" sx={{ textAlign: 'left' }} pl={1} mt={3} mb={3}>
         Favorite Movie
       </Typography>
-
-      {movieData.length > 0 ? (
-        movieData.map((movies) => (
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'start',
-              width: '100%',
-              gap: '5px 10px',
-            }}
-          >
-            <Box key={movies.id} sx={{ width: '30%', maxWidth: '200px', position: 'relative' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          width: '100%',
+          gap: '5px 10px',
+        }}
+      >
+        {movieData.length > 0 ? (
+          movieData.map((movies) => (
+            <Box
+              key={movies.id}
+              sx={{ width: '30%', minWidth: '200px', maxWidth: '200px', position: 'relative' }}
+            >
               <img
                 className="poster"
                 src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
@@ -75,22 +77,26 @@ const FavoritePage = () => {
                 <FavoriteIcon color="secondary" />
               </IconButton>
             </Box>
+          ))
+        ) : (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            }}
+            mt={3}
+          >
+            <Typography m={2}>Explore your favorite movies.</Typography>
+            <Button variant="contained">
+              <Link href="#" underline="none" color="#fff">
+                GO BACK HOME
+              </Link>
+            </Button>
           </Box>
-        ))
-      ) : (
-        <Box
-          sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}
-          mt={3}
-        >
-          <Typography m={2}>Explore your favorite movies.</Typography>
-          <Button variant="contained">
-            <Link href="#" underline="none" color="#fff">
-              GO BACK HOME
-            </Link>
-          </Button>
-        </Box>
-      )}
-
+        )}
+      </Box>
       <MovieModal open={open} handleClose={handleClose} selectedMovie={selectedMovie} />
     </Container>
   );
