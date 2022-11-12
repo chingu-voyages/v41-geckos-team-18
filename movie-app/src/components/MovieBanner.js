@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
 import Typography from '@mui/material/Typography';
