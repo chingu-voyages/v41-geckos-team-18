@@ -6,6 +6,8 @@ import MovieModal from '../components/MovieModal';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 const SearchPage = () => {
   const useQuery = () => {
@@ -26,7 +28,7 @@ const SearchPage = () => {
 
   console.log(movies, isLoading, error);
   return (
-    <Container>
+    <Container sx={{ marginBottom: '5em', minHeight: '90vh' }}>
       {isLoading ? (
         'Loading...'
       ) : (
@@ -62,7 +64,22 @@ const SearchPage = () => {
                 </Box>
               ))
             ) : (
-              <Typography>No search results found.</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                }}
+                mt={3}
+              >
+                <Typography m={2}>No search results found.</Typography>
+                <Button variant="contained">
+                  <Link href="#" underline="none" color="#fff">
+                    GO BACK HOME
+                  </Link>
+                </Button>
+              </Box>
             )}
           </Box>
           <MovieModal open={open} handleClose={handleClose} selectedMovie={selectedMovie} />
