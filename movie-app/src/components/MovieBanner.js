@@ -18,7 +18,9 @@ const MovieBanner = () => {
     isLoading,
   } = useFetch(url);
 
-  const item = movie && movie.slice(0, 5);
+  const item =
+    movie && movie.slice(Math.floor(Math.random() * 5), Math.floor(Math.random() * 5) + 5);
+
   const navigate = useNavigate();
 
   const moveDetailPage = (movieId) => {
