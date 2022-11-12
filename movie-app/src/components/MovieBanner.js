@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import useFetch from '../hooks/useFetch';
 import Typography from '@mui/material/Typography';
@@ -18,8 +18,10 @@ const MovieBanner = () => {
     isLoading,
   } = useFetch(url);
 
-  const item =
-    movie && movie.slice(Math.floor(Math.random() * 5), Math.floor(Math.random() * 5) + 5);
+  const randomNumber = useMemo(() => {
+    Math.floor(Math.random() * 5);
+  }, []);
+  const item = movie && movie.slice(randomNumber, randomNumber + 5);
 
   const navigate = useNavigate();
 
