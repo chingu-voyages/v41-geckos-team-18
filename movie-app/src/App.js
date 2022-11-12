@@ -5,6 +5,7 @@ import MovieDetails from './page/MovieDetails';
 import NotFound from './page/NotFound';
 import MainLayout from './layout/MainLayout';
 import SearchPage from './page/SearchPage';
+import FavoritePage from './page/FavoritePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path=":movieId" element={<MovieDetails />} />
         </Route>
         <Route path="search" element={<SearchPage />} />
+        <Route path="favorite" element={<FavoritePage />} />
       </Route>
 
       {/* 404 Page */}

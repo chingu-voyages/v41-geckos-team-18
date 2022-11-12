@@ -22,6 +22,10 @@ const SearchBar = () => {
     }
   };
 
+  const moveFavoritePage = () => {
+    navigate(`/favorite`);
+  };
+
   return (
     <div style={{ backgroundColor: '#45464F' }}>
       <Box
@@ -72,11 +76,11 @@ const SearchBar = () => {
             <SearchIcon sx={{ margin: '0 10px' }} onClick={searchContent} />
           </SearchBox>
 
-          <DesktopButtonStyle>
+          <DesktopButtonStyle onClick={moveFavoritePage}>
             <FavoriteIcon sx={{ mr: 1 }} />
             FAVORITE
           </DesktopButtonStyle>
-          <MobileButtonStyle>
+          <MobileButtonStyle onClick={moveFavoritePage}>
             <FavoriteIcon color="primary" sx={{ fontSize: '30px', marginTop: '5px' }} />
           </MobileButtonStyle>
         </Box>
