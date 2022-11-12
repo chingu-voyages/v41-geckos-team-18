@@ -18,16 +18,14 @@ const MovieBanner = () => {
     isLoading,
   } = useFetch(url);
 
-  const randomNumber = useMemo(() => {
-    Math.floor(Math.random() * 5);
-  }, []);
-  const item = movie && movie.slice(randomNumber, randomNumber + 5);
-
   const navigate = useNavigate();
 
   const moveDetailPage = (movieId) => {
     navigate(`/movie/${movieId}`);
   };
+
+  let randomNumber = Math.floor(Math.random() * 5);
+  const item = movie && movie.slice(randomNumber, randomNumber + 5);
 
   return (
     <>
