@@ -30,7 +30,7 @@ export default function MoodContent({ genre, setTotalPages, currentPage }) {
         <Box
           sx={{
             width: '100%',
-            height: '500px',
+            height: '375px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
