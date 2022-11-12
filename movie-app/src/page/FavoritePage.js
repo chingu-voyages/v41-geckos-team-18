@@ -3,8 +3,10 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import MovieModal from '../components/MovieModal';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 const FavoritePage = () => {
   const [movieData, setMovieData] = useState([]);
@@ -37,20 +39,21 @@ const FavoritePage = () => {
 
   return (
     <Container sx={{ height: '80vh' }}>
-      <Typography component="h2" variant="h5" sx={{ textAlign: 'center' }} m={3}>
+      <Typography component="h2" variant="h5" sx={{ textAlign: 'left' }} mt={3} mb={3}>
         Favorite Movie
       </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'start',
-          width: '100%',
-          gap: '5px 10px',
-        }}
-      >
-        {movieData.length > 0 ? (
-          movieData.map((movies) => (
+
+      {movieData.length > 0 ? (
+        movieData.map((movies) => (
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'start',
+              width: '100%',
+              gap: '5px 10px',
+            }}
+          >
             <Box key={movies.id} sx={{ width: '30%', maxWidth: '200px', position: 'relative' }}>
               <img
                 className="poster"
@@ -65,26 +68,29 @@ const FavoritePage = () => {
               />
               <IconButton
                 component="label"
-                sx={{ position: 'absolute', bottom: '0', right: '0', zIndex: '999' }}
+                sx={{ position: 'absolute', top: '0', right: '0', zIndex: '999' }}
                 size="large"
                 onClick={() => deleteData(movies.id)}
               >
-                <DeleteIcon color="primary" />
+                <FavoriteIcon color="secondary" />
               </IconButton>
             </Box>
-          ))
-        ) : (
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <p>There are no movies!</p>
           </Box>
-        )}
-      </Box>
+        ))
+      ) : (
+        <Box
+          sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}
+          mt={3}
+        >
+          <Typography m={2}>Explore your favorite movies.</Typography>
+          <Button variant="contained">
+            <Link href="#" underline="none" color="#fff">
+              GO BACK HOME
+            </Link>
+          </Button>
+        </Box>
+      )}
+
       <MovieModal open={open} handleClose={handleClose} selectedMovie={selectedMovie} />
     </Container>
   );

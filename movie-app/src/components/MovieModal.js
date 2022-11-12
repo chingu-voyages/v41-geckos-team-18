@@ -24,7 +24,8 @@ export default function MovieModal({ open, handleClose, selectedMovie }) {
   }));
 
   const createOverview = (overview) => {
-    let result = overview.split(' ').join(' ') + '..';
+    overview = overview.split(' ').slice(0, 31);
+    let result = overview.join(' ') + '..';
     return result;
   };
 
