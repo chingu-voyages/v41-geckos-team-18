@@ -1,34 +1,29 @@
-/* eslint-disable no-unused-vars */
-import {useState, useEffect} from 'react';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Main from './page/Main';
+import MovieDetails from './page/MovieDetails';
+import NotFound from './page/NotFound';
+import MainLayout from './layout/MainLayout';
+import SearchPage from './page/SearchPage';
+import FavoritePage from './page/FavoritePage';
 
 function App() {
-  const URL = '/.netlify/functions/fetch-movie';
+  return (
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Main />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="movie">
+          <Route path=":movieId" element={<MovieDetails />} />
+        </Route>
+        <Route path="search" element={<SearchPage />} />
+        <Route path="favorite" element={<FavoritePage />} />
+      </Route>
 
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      try {
-        const response = await fetch(URL);
-
-        // Convert to JSON
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+      {/* 404 Page */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 }
 
 export default App;
