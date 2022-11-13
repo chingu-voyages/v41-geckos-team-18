@@ -29,7 +29,7 @@ in your `readme` feel free to replace the text we've provided here.
 
 ## Overview
 
-Gecko's 18 Movie App offers useful information about Movies and TV Shows. User can also get interesting movie/show suggestions, search and save to favourite.
+Nanum Movie App offers useful information about Movies. User can also get interesting movie suggestions, search and save to favourite.
 
 ### Installation
 
