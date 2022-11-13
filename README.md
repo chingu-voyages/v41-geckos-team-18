@@ -56,3 +56,14 @@ npm run dev
 - React Router
 
 ## Credits
+
+### Designer
+[Livia](https://www.linkedin.com/in/linyahuangdesign/?locale=en_US)
+
+### Developer
+[doinby](https://github.com/doinby)   
+[funamioh](https://github.com/funamioh)   
+[NickDoublet](https://github.com/NickDoublet)  
+[sukyungdev](https://github.com/sukyungdev)  
+
+
