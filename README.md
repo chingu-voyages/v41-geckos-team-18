@@ -58,7 +58,7 @@ npm run dev
 ## Credits
 
 ### Designer
-[Livia](https://www.linkedin.com/in/linyahuangdesign/?locale=en_US)
+[Livia](https://github.com/vitalityoflife)
 
 ### Developer
 [doinby](https://github.com/doinby)   
